@@ -2,13 +2,67 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,intital-scale=1.0">
+        <meta name="viewport">
         <title>Recipes</title>
+        <link rel="icon" href="images/cooking.gif" type="image/gif" sizes="16x16">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="styles/app.css">
     </head>
     <body>
-        <h1>test</h1>
-       
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand mb-0 h1" href="#">
+                    <img src="images/logo.gif" width="30" height="30" alt="" loading="lazy">
+                    Recipes
+                </a>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <div class="row row-cols-4">
+                <div class="col">African</div>
+                <div class="col">American</div>
+                <div class="col">British</div>
+                <div class="col">Cajun</div>
+                <div class="col">Caribbean</div>
+                <div class="col">Chinese</div>
+                <div class="col">Eastern European</div>
+                <div class="col">European</div>
+                <div class="col">French</div>
+                <div class="col">German</div>
+                <div class="col">Greek</div>
+                <div class="col">Indian</div>
+                <div class="col">Irish</div>
+                <div class="col">Italian</div>
+                <div class="col">Japanese</div>
+                <div class="col">Jewish</div>
+                <div class="col">Korean</div>
+                <div class="col">Latin American</div>
+                <div class="col">Mediterranean</div>
+                <div class="col">Mexican</div>
+                <div class="col">Middle Eastern</div>
+                <div class="col">Nordic</div>
+                <div class="col">Southern</div>
+                <div class="col">Spanish</div>
+                <div class="col">Thai</div>
+                <div class="col">Vietnamese</div>
+            </div>
+
+            <div id="search-bar">
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input type="text" class="form-control" id="search" placeholder="Enter ingredients">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Search Recipes</button>
+                </form>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
         <script src="src/index.js"></script>
     </body>
 </html>
