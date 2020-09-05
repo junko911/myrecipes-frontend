@@ -2,3 +2,14 @@ div.container {
   width: 800px;
   margin: 0 auto;
 }
+
+div.col {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1.5rem;
+  width: 75rem;
+  height: 5rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #CD5C5C
+}
