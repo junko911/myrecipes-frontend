@@ -6,9 +6,20 @@ div.container {
 div.col {
   text-align: center;
   border: grey solid 1px;
-  padding: 1.5rem;
+  padding: 1.85rem;
   width: 75rem;
-  height: 5rem;
+  height: 5.45rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #CD5C5C
+}
+
+div.cuisine-bar {
+  text-align: left;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 50rem;
+  height: 3.8rem;
   display: inline-grid;
   margin: 1rem 2rem;
   box-shadow: 3px 4px #CD5C5C
