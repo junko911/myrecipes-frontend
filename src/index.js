@@ -1,3 +1,5 @@
+let recipeDropdown = true
+
 document.addEventListener("DOMContentLoaded", function(e){
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
@@ -30,14 +32,24 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <button id="fish">Fish Free 🐟</button>
                 </div><br>
                 <div class="filtered-recipes">
-                    **RECIPE GOES HERE**
+                    **RECIPE TITLE**
                     <button class="like-btn">Like ❤️</button>
-                    <button class="recipe-detail-btn">See Detail</button>
+                    <button class="recipe-detail-btn">See Detail</button> 
+                    <div class="recipe-detail" style="display: none;"> **RECIPE GOES HERE** </div>
                 </div>
                 `
                 const recipeDetailButton = cuisineContainer.children[2].children[1]
+                let recipeDetails = cuisineContainer.children[2].children[2]
+                //console.log(recipeDetails)
                 recipeDetailButton.addEventListener("click", function(e){
-                    console.log("I hope this works")
+                    recipeDropdown = !recipeDropdown
+                    if (recipeDropdown) {
+                        recipeDetails.style.display = "block";
+                        recipeDetailButton.textContent = "Less Detail"
+                      } else {
+                        recipeDetails.style.display = "none";
+                        recipeDetailButton.textContent = "See Detail"
+                      }
                 })
             })
             
