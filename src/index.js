@@ -3,10 +3,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     const ingredientsForm = document.querySelector(".form-inline")
     const ingredientsFormInput = document.querySelector(".form-control")
     
+    
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "col"){
             let cuisineType = e.target.textContent
-            // get cuisine type to append to new page
+            //get image for cuisine to append to second page
+            // get cuisine type to append to second page
             
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
@@ -18,18 +20,29 @@ document.addEventListener("DOMContentLoaded", function(e){
                 `
                 <div id="second-page">
                     <div class="cuisine-bar">${cuisineType}</div>
-                    <button id="nuts">Dairy Free</button>
-                    <button id="eggs">Egg Free</button>
-                    <button id="nuts">Nut Free</button>
-                    <button id="eggs">Peanut Free</button>
-                    <button id="nuts">Shellfish Free</button>
-                    <button id="eggs">Wheat Free</button>
-                    <button id="nuts">Soy Free</button>
-                    <button id="eggs">Fish Free</button>
+                    <button id="dairy">Dairy Free 🥛</button>
+                    <button id="egg">Egg Free 🥚</button>
+                    <button id="nut">Nut Free 🌰</button>
+                    <button id="peanut">Peanut Free 🥜</button>
+                    <button id="shellfish">Shellfish Free 🦐</button>
+                    <button id="wheat">Wheat Free 🌾</button>
+                    <button id="soy">Soy Free </button>
+                    <button id="fish">Fish Free 🐟</button>
+                </div><br>
+                <div class="filtered-recipes">
+                    **RECIPE GOES HERE**
+                    <button class="like-btn">Like ❤️</button>
+                    <button class="recipe-detail-btn">See Detail</button>
                 </div>
                 `
+                const recipeDetailButton = cuisineContainer.children[2].children[1]
+                recipeDetailButton.addEventListener("click", function(e){
+                    console.log("I hope this works")
+                })
             })
             
+            
+               
         }
     })
 
