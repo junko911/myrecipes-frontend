@@ -1,4 +1,4 @@
-let recipeDropdown = true
+let recipeDropdown = false
 
 document.addEventListener("DOMContentLoaded", function(e){
     const cuisineContainer = document.querySelector(".container")
