@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
     const ingredientsFormInput = document.querySelector(".form-control")
-    const commentForm = document.querySelector(".comment-form")
-   
     const apiUrl = "http://localhost:3000/api/v1/cuisines"
     const commentsUrl = "http://localhost:3000/api/v1/comments"
 
@@ -52,12 +50,14 @@ document.addEventListener("DOMContentLoaded", function(e){
                     </ul>
                     <form class="comment-form">
                         <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
-                        <button class="comment-button" type="submit">Post</button>
+                        <button class="comment-button" type="submit">Add Comment</button>
                     </form>
                 </div>
                 `
                 const recipeDetailButton = document.querySelector(".recipe-detail-btn")
                 const recipeDetails = document.querySelector(".recipe-detail")
+                const commentForm = document.querySelector(".comment-form")
+                // const commentButton = document.querySelector(".comment-button")
                 
                 recipeDetailButton.addEventListener("click", function(e){
                     recipeDropdown = !recipeDropdown
@@ -70,7 +70,23 @@ document.addEventListener("DOMContentLoaded", function(e){
                       }
                 })
 
-                //const commentFormButton = 
+                commentForm.addEventListener("submit", function(e){
+                    e.preventDefault()
+                    let newComment = document.querySelector(".comment-input").value
+
+                    fetch(commentsUrl, {
+                        method: "POST",
+                        headers:{
+                            "Content-Type": "application.json",
+                            "Accepts": "application/json"
+                        },
+                        body: JSON.stringify({
+                            comments: newComment
+                        })
+                    })
+                    // .then(resp => resp.json())
+                    // .then()
+                })
             })
                 
         }
