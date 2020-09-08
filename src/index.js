@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
     const ingredientsFormInput = document.querySelector(".form-control")
+    const commentForm = document.querySelector(".comment-form")
+   
     const apiUrl = "http://localhost:3000/api/v1/cuisines"
     const commentsUrl = "http://localhost:3000/api/v1/comments"
 
@@ -24,9 +26,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 e.preventDefault()
 
                 let formInput = ingredientsFormInput.value
-            
                 //use form input to filter and bring up recipes by ingredient
-
 
                 cuisineContainer.innerHTML = 
                 `
@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                     </form>
                 </div>
                 `
-                const recipeDetailButton = cuisineContainer.children[2].children[1]
-                let recipeDetails = cuisineContainer.children[2].children[2]
-                //console.log(recipeDetails)
+                const recipeDetailButton = document.querySelector(".recipe-detail-btn")
+                const recipeDetails = document.querySelector(".recipe-detail")
+                
                 recipeDetailButton.addEventListener("click", function(e){
                     recipeDropdown = !recipeDropdown
                     if (recipeDropdown) {
@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                         recipeDetailButton.textContent = "See Detail"
                       }
                 })
+
+                //const commentFormButton = 
             })
                 
         }
