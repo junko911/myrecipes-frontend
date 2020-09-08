@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <button id="peanut">Peanut Free 🥜</button>
                     <button id="shellfish">Shellfish Free 🦐</button>
                     <button id="wheat">Wheat Free 🌾</button>
-                    <button id="soy">Soy Free </button>
+                    <button id="soy">Soy Free 🌱</button>
                     <button id="fish">Fish Free 🐟</button>
                 </div><br>
                 <div class="filtered-recipes">
