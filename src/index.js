@@ -4,7 +4,15 @@ document.addEventListener("DOMContentLoaded", function(e){
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
     const ingredientsFormInput = document.querySelector(".form-control")
-    
+    const apiUrl = "http://localhost:3000/api/v1/cuisines"
+    const commentsUrl = "http://localhost:3000/api/v1/comments"
+
+    let fetchApiData = () => {
+        fetch(apiUrl)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+    }
+    fetchApiData()
     
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "col"){
@@ -16,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 e.preventDefault()
 
                 let formInput = ingredientsFormInput.value
+            
                 //use form input to filter and bring up recipes by ingredient
+
 
                 cuisineContainer.innerHTML = 
                 `
@@ -36,6 +46,14 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <button class="like-btn">Like ❤️</button>
                     <button class="recipe-detail-btn">See Detail</button> 
                     <div class="recipe-detail" style="display: none;"> **RECIPE GOES HERE** </div>
+                    <ul class="comments">
+                        <li>**USER COMMENT**</li>
+                        <li>**USER COMMENT 2**</li>
+                    </ul>
+                    <form class="comment-form">
+                        <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
+                        <button class="comment-button" type="submit">Post</button>
+                    </form>
                 </div>
                 `
                 const recipeDetailButton = cuisineContainer.children[2].children[1]
@@ -52,10 +70,13 @@ document.addEventListener("DOMContentLoaded", function(e){
                       }
                 })
             })
-            
-            
-               
+                
         }
     })
 
 })
+
+/*
+ 
+
+*/

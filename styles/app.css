@@ -35,3 +35,15 @@ div.recipe-detail {
   margin: 1rem 2rem;
   box-shadow: 3px 4px #CD5C5C
 }
+
+.comments {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 10px;
+  font-size: 0.85rem;
+}
+
+.comments li {
+  margin: 2px 0;
+  letter-spacing: 0.2px;
+}
