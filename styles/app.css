@@ -120,6 +120,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#southern {
+  background: url(../images/southern.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 #search-bar {
   padding-top: 25px;
 }
