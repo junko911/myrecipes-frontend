@@ -100,6 +100,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#latin-american {
+  background: url(../images/latin-american.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 #search-bar {
   padding-top: 25px;
 }
