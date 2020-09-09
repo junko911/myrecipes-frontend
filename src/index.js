@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function(e){
 
     const cuisineContainer = document.querySelector(".container")
@@ -138,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         container.append(recipeDiv)
     }
 
+    // Rerender recipe when filter buttons are clicked
     const fetchRecipes = container => {
         const filterKeyword = filterKeywords.join('')
         if (ingredient === "") {
