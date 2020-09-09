@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     .then(resp => resp.json())
                     .then(data => {
                         allRecipesArray = data 
+                        console.log(allRecipesArray)
                         renderRecipes(data)})  
                 }
                 fetchFilteredRecipes()
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 //                 //render single recipe
                 let renderRecipe = (recipe) => {
                     let recipeId = recipe.id
+                    console.log(recipe.content)
                     //console.log(recipeContent)
                     let recipeDiv = document.createElement("div")
                     recipeDiv.className = "filtered-recipes"
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     ${recipe.title}
                     <button class="like-btn">Like ❤️</button>
                     <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
-                    <div class="recipe-detail" id=${recipeId} style="display: none;"> **RECIPE GOES HERE** </div>
+                    <div class="recipe-detail" id=${recipeId} style="display: none;"> ${recipe.content} </div>
                     <ul class="comments">
                         <li>**USER COMMENT 1**</li>
                         <li>**USER COMMENT 2**</li>
@@ -91,6 +93,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 //             //const commentForm = document.querySelector(".comment-form")
 //             // const commentButton = document.querySelector(".comment-button")
+
+                
                 secondPageContainer.addEventListener("click", function(e){
                     if(e.target.className === "recipe-detail-btn"){
                         const recipeDetails = e.target.nextElementSibling
