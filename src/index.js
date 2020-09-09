@@ -94,10 +94,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                 secondPageContainer.addEventListener("click", function(e){
                     if(e.target.className === "recipe-detail-btn"){
                         const recipeDetails = e.target.nextElementSibling
-                        //         console.dir(recipeDetails)
+                                console.log("button click working")
                         if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "none"){
-                            recipeDetails.style.display === "block"
-                            //             e.target.textContent = "See Less"
+                            recipeDetails.style.display = "block"
+                            e.target.textContent = "See Less"
                         } else {
                             console.log("else")
                         }
