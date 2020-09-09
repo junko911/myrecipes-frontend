@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 let formInput = ingredientsFormInput.value
                 //use form input to filter and bring up recipes by ingredient
 
+
+
+
                 cuisineContainer.innerHTML = 
                 `
                 <div id="second-page">
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <div class="filtered-recipes">
                     **RECIPE TITLE**
                     <button class="like-btn">Like ❤️</button>
-                    <button class="recipe-detail-btn">See Detail</button> 
+                    <button class="recipe-detail-btn">See Detail</button> //event listener - based on when user clicks, user can see detail
                     <div class="recipe-detail" style="display: none;"> **RECIPE GOES HERE** </div>
                     <ul class="comments">
                         <li>**USER COMMENT**</li>
@@ -94,7 +97,3 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 })
 
-/*
- 
-
-*/
