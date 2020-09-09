@@ -130,6 +130,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#thai {
+  background: url(../images/thai.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 #search-bar {
   padding-top: 25px;
 }
