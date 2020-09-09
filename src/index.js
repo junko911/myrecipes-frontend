@@ -15,21 +15,16 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     fetchApiData()
 
-    
-    
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "col"){
             let cuisineType = e.target.textContent.toLowerCase()
             let cuisineCapitalized = e.target.textContent
-            //get image for cuisine to append to second page
-            // get cuisine type to append to second page
             
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
 
                 let formInput = ingredientsFormInput.value.toLowerCase()
-                //use form input to filter and bring up recipes by ingredient
-
+                
                 cuisineContainer.innerHTML = 
                 `
                 <div id="second-page">
