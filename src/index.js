@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <div class="recipe-container"></div>
                 </div><br>
                 `
-                document.querySelector("video").remove()
                 document.body.style.background = "url(images/kitchen.jpg) no-repeat center"
                 const recipeContainer = document.querySelector(".recipe-container")
             
