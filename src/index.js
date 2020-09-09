@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
-            let cuisineType = e.target.textContent.toLowerCase()
+            let cuisineType = e.target.id
             let cuisineCapitalized = e.target.firstChild.textContent
-            
+
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
 
@@ -115,12 +115,30 @@ document.addEventListener("DOMContentLoaded", function(e){
               
             })
         } else if (e.target.className === "filter-btn") {
-            e.target.dataset.status = e.target.dataset.status === "off" ? "on" : "off"
-            // if e
-            // filterKeyword.push
+            // e.target.dataset.status = e.target.dataset.status === "off" ? "on" : "off"
+            if (e.target.dataset.status === "off") {
+                e.target.dataset.status = "on"
+                filterKeywords.push(`&${e.target.id}_free=1`)
+                fetchRecipes()
+            } else {
+                e.target.dataset.status = "off"
+                filterKeywords = filterKeywords.filter( word => word !== `&${e.target.id}_free=1`)
+                fetchRecipes()
+            }
         }        
     })
+
+    const fetchRecipes = () => {
+        const filterKeyword = filterKeywords.join('')
+        // fetch(`${apiUrl}/${cuisine}/?ingredient=${ingredient}?${filterKeyword}`)
+        // // .then(resp => resp.json())
+        // // .then(data => {
+        // //     // allRecipesArray = data 
+        // //     console.log(allRecipesArray)
+        // //         renderRecipes(data)})  
+    }
 })
+
 
 
  /*
