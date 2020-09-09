@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     const commentsUrl = "http://localhost:3000/api/v1/comments"
     let recipeContent
     let allRecipesArray
+    let filterKeywords = []
 
     let fetchApiData = () => {
         fetch(apiUrl)
@@ -30,14 +31,14 @@ document.addEventListener("DOMContentLoaded", function(e){
                 `
                 <div id="second-page">
                     <div class="cuisine-bar">${cuisineCapitalized}</div>
-                    <button id="dairy">Dairy Free 🥛</button>
-                    <button id="egg">Egg Free 🥚</button>
-                    <button id="nut">Nut Free 🌰</button>
-                    <button id="peanut">Peanut Free 🥜</button>
-                    <button id="shellfish">Shellfish Free 🦐</button>
-                    <button id="wheat">Wheat Free 🌾</button>
-                    <button id="soy">Soy Free 🌱</button>
-                    <button id="fish">Fish Free 🐟</button>
+                    <button class="filter-btn" id="dairy" data-status="off">Dairy Free 🥛</button>
+                    <button class="filter-btn" id="egg"  data-status="off">Egg Free 🥚</button>
+                    <button class="filter-btn" id="nut"  data-status="off">Nut Free 🌰</button>
+                    <button class="filter-btn" id="peanut"  data-status="off">Peanut Free 🥜</button>
+                    <button class="filter-btn" id="shellfish"  data-status="off">Shellfish Free 🦐</button>
+                    <button class="filter-btn" id="wheat"  data-status="off">Wheat Free 🌾</button>
+                    <button class="filter-btn" id="soy"  data-status="off">Soy Free 🌱</button>
+                    <button class="filter-btn" id="fish"  data-status="off">Fish Free 🐟</button>
                 </div><br>
                 `
                 const secondPageContainer = document.querySelector("#second-page")
@@ -115,7 +116,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                
               
             })
-        }
+        } else if (e.target.className === "filter-btn") {
+            e.target.dataset.status = e.target.dataset.status === "off" ? "on" : "off"
+            // if e
+            // filterKeyword.push
+        }        
     })
 })
 
