@@ -18,6 +18,7 @@ header {
   padding: 20px;
   text-align: center;
   font-style: italic;
+  text-shadow: 2px 2px 2px #6D6875;
 }
 
 div.container {
@@ -29,7 +30,6 @@ div.cuisine {
   border: grey solid 1px;
   padding: 1rem;
   margin: 1rem 0.25rem;
-  /* box-shadow: 3px 4px #CD5C5C */
   font-size: 20px;
   color: ivory;
   text-shadow: 2px 2px 2px #6D6875;
@@ -92,6 +92,11 @@ div.cuisine {
 
 #japanese {
   background: url(../images/japanese.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#korean {
+  background: url(../images/korean.jpg) no-repeat center;
   background-size: 100% auto;
 }
 
