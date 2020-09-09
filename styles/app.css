@@ -66,6 +66,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#indian {
+  background: url(../images/indian.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 div.cuisine-bar {
   text-align: left;
   border: grey solid 1px;
