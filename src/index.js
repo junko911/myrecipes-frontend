@@ -1,4 +1,3 @@
-let recipeDropdown = false
 
 document.addEventListener("DOMContentLoaded", function(e){
     const cuisineContainer = document.querySelector(".container")
@@ -6,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     const ingredientsFormInput = document.querySelector(".form-control")
     const apiUrl = "http://localhost:3000/api/v1/cuisines"
     const commentsUrl = "http://localhost:3000/api/v1/comments"
+    let recipeContent
+    let allRecipesArray
 
     let fetchApiData = () => {
         fetch(apiUrl)
@@ -13,10 +14,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         .then(data => console.log(data))
     }
     fetchApiData()
+
+    
     
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "col"){
             let cuisineType = e.target.textContent.toLowerCase()
+            let cuisineCapitalized = e.target.textContent
             //get image for cuisine to append to second page
             // get cuisine type to append to second page
             
@@ -29,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 cuisineContainer.innerHTML = 
                 `
                 <div id="second-page">
-                    <div class="cuisine-bar">${cuisineType}</div>
+                    <div class="cuisine-bar">${cuisineCapitalized}</div>
                     <button id="dairy">Dairy Free 🥛</button>
                     <button id="egg">Egg Free 🥚</button>
                     <button id="nut">Nut Free 🌰</button>
@@ -45,12 +49,16 @@ document.addEventListener("DOMContentLoaded", function(e){
                 let fetchFilteredRecipes = () => {
                     fetch(`${apiUrl}/${cuisineType}/?ingredient=${formInput}`)
                     .then(resp => resp.json())
-                    .then(data => renderRecipes(data))
+                    .then(data => {
+                        allRecipesArray = data 
+                        renderRecipes(data)})  
                 }
                 fetchFilteredRecipes()
 
                 //render single recipe
                 let renderRecipe = (recipe) => {
+                    let recipeId = recipe.id
+                    console.log(recipeContent)
                     let recipeDiv = document.createElement("div")
                     recipeDiv.className = "filtered-recipes"
                     recipeDiv.innerHTML = 
@@ -59,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     ${recipe.title}
                     <button class="like-btn">Like ❤️</button>
                     <button class="recipe-detail-btn">See Detail</button> 
-                    <div class="recipe-detail" style="display: none;"> ${recipe.content} </div>
+                    <div class="recipe-detail" id=${recipeId}> </div>
                     <ul class="comments">
                         <li>**USER COMMENT 1**</li>
                         <li>**USER COMMENT 2**</li>
@@ -80,23 +88,35 @@ document.addEventListener("DOMContentLoaded", function(e){
                     })
                 }
 
-                const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-                const recipeDetails = document.querySelector(".recipe-detail")
+
+                // const recipeDetails = document.querySelector(".recipe-detail") 
+                // console.log(recipeDetails)
+                // const recipeDetailButton = document.querySelector(".recipe-detail-btn")
+                // console.log(recipeDetailButton)
                 const commentForm = document.querySelector(".comment-form")
-                // const commentButton = document.querySelector(".comment-button")
-                
+            // const commentButton = document.querySelector(".comment-button")
+            
+             
                 secondPageContainer.addEventListener("click", function(e){
-                    if(e.target.id === "recipe-detail-btn"){
-                        recipeDropdown = !recipeDropdown
-                        if (recipeDropdown) {
-                            recipeDetails.style.display = "block";
-                            recipeDetailButton.textContent = "Less Detail"
-                          } else {
-                            recipeDetails.style.display = "none";
-                            recipeDetailButton.textContent = "See Detail"
-                          }
-                    } 
-                })
+                   
+                    if(e.target.className === "recipe-detail-btn"){
+                         console.log("event")
+                         const recipeDetails = document.querySelector(".recipe-detail") 
+                         //getElementById filter array and id = matches and use content of element with matching ID
+                         e.target.innerHTML = recipeContent
+                          // if(e.target){
+                    //     console.log("click")
+                    //     if(recipeDetails.innerHTML === ""){
+                    //     console.log("empty")
+                    //    
+                    //     } 
+                    // }
+                        console.log(recipeDetails)
+                   
+                    }   
+            })
+               
+                
 
                 // commentForm.addEventListener("submit", function(e){
                 //     e.preventDefault()
@@ -113,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 //     //     })
                 //     // })
                 //     // .then(resp => resp.json())
-                //     // .then()
+                //     // .then(recipe => renderRecipe(recipe))
                 // })
             })
                 
