@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     const apiUrl = "http://localhost:3000/api/v1/cuisines"
     const commentsUrl = "http://localhost:3000/api/v1/comments"
     let recipeContent
-    let allRecipesArray
+    // let allRecipesArray
     let filterKeywords = []
 
     let fetchApiData = () => {
@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <button class="filter-btn" id="soy"  data-status="off">Soy Free 🌱</button>
                 </div><br>
                 `
+                document.querySelector("video").remove()
+                document.body.style.background = "url(images/kitchen.jpg) no-repeat center"
                 const secondPageContainer = document.querySelector("#second-page")
             
                 let fetchFilteredRecipes = () => {
@@ -130,12 +132,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     const fetchRecipes = () => {
         const filterKeyword = filterKeywords.join('')
-        // fetch(`${apiUrl}/${cuisine}/?ingredient=${ingredient}?${filterKeyword}`)
-        // // .then(resp => resp.json())
-        // // .then(data => {
-        // //     // allRecipesArray = data 
-        // //     console.log(allRecipesArray)
-        // //         renderRecipes(data)})  
+        fetch(`${apiUrl}/${cuisine}/?ingredient=${ingredient}?${filterKeyword}`)
+        .then(resp => resp.json())
+        .then(renderRecipes)  
     }
 })
 
