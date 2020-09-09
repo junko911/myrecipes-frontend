@@ -1,17 +1,37 @@
-div.container {
-  width: 800px;
-  margin: 0 auto;
+#myVideo {
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-div.col {
+div.container {
+  width: 1000px;
+}
+
+div.cuisine {
   text-align: center;
   border: grey solid 1px;
-  padding: 1.85rem;
-  width: 75rem;
-  height: 5.45rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #CD5C5C
+  padding: 1rem;
+  margin: 1rem 0.25rem;
+  /* box-shadow: 3px 4px #CD5C5C */
+  font-size: 20px;
+}
+
+#american {
+  background: url(../images/american.jpg) no-repeat center;
+  background-size: 100% auto;
+  color: ivory;
+  text-shadow: 2px 2px #6D6875;
+}
+
+#american {
+  background: url(../images/american.jpg) no-repeat center;
+  background-size: 100% auto;
+  color: ivory;
+  text-shadow: 2px 2px #6D6875;
 }
 
 div.cuisine-bar {
