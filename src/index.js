@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     fetchApiData()
 
     cuisineContainer.addEventListener("click", function(e){
-        if(e.target.className === "col"){
+        if(e.target.className === "cuisine"){
             let cuisineType = e.target.textContent.toLowerCase()
-            let cuisineCapitalized = e.target.textContent
+            let cuisineCapitalized = e.target.firstChild.textContent
             
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
