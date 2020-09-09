@@ -125,6 +125,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#spanish {
+  background: url(../images/spanish.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 #search-bar {
   padding-top: 25px;
 }
