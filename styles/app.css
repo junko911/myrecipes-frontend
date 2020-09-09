@@ -22,6 +22,10 @@ div.cuisine {
   text-shadow: 2px 2px 2px #6D6875;
 }
 
+#cuisine-container {
+  margin-top: 10%;
+}
+
 #american {
   background: url(../images/american.jpg) no-repeat center;
   background-size: 100% auto;
@@ -34,6 +38,11 @@ div.cuisine {
 
 #chinese {
   background: url(../images/chinese.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#eastern-european {
+  background: url(../images/eastern-european.jpg) no-repeat center;
   background-size: 100% auto;
 }
 
