@@ -57,19 +57,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }
                 fetchFilteredRecipes()
 
-                
-                
-
-
-//                 // const recipeDetails = document.querySelector(".recipe-detail") 
-//                 // console.log(recipeDetails)
-//                 // const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-//                 // console.log(recipeDetailButton)
-
-
-//             //const commentForm = document.querySelector(".comment-form")
-//             // const commentButton = document.querySelector(".comment-button")
-
                 const secondPageContainer = document.querySelector("#second-page")                
                 secondPageContainer.addEventListener("click", function(e){
                     if(e.target.className === "recipe-detail-btn"){
@@ -115,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     const renderRecipe = (container, recipe) => {
         let recipeId = recipe.id
         console.log(recipe.content)
-        //console.log(recipeContent)
         let recipeDiv = document.createElement("div")
         recipeDiv.className = "filtered-recipes"
         recipeDiv.innerHTML = 
@@ -127,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         <div class="recipe-detail" id=${recipeId} style="display: none;"> ${recipe.content} </div>
         <ul class="comments">
         <li>**USER COMMENT 1**</li>
-            <li>**USER COMMENT 2**</li>
+        <li>**USER COMMENT 2**</li>
         </ul>
         <form class="comment-form">
             <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
