@@ -56,6 +56,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#german {
+  background: url(../images/german.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 div.cuisine-bar {
   text-align: left;
   border: grey solid 1px;
