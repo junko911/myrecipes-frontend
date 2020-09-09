@@ -10,17 +10,27 @@ document.addEventListener("DOMContentLoaded", function(e){
     let cuisineType = ""
     let ingredient = ""
 
-    let fetchApiData = () => {
-        fetch(apiUrl)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-    }
-    fetchApiData()
+    // let fetchApiData = () => {
+    //     fetch(apiUrl)
+    //     .then(resp => resp.json())
+    //     .then(data => console.log(data))
+    // }
+    // fetchApiData()
 
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
             cuisineType = e.target.id
             let cuisineCapitalized = e.target.textContent
+
+            document.querySelectorAll(".cuisine").forEach(e => e.classList.remove("clicked"))
+            e.target.classList.add("clicked")
+            document.querySelectorAll(".cuisine").forEach(e => {
+                if (e.classList.contains('clicked') === false) {
+                    e.style.opacity = "0.5"
+                } else {
+                    e.style.opacity = ""
+                }
+            })
 
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
