@@ -12,11 +12,12 @@ body {
 }
 
 header {
-  background: rgba(0, 0, 0, 0.3);
   color: ivory;
+  margin-top: 60px;
   width: 100%;
   padding: 20px;
   text-align: center;
+  font-style: italic;
 }
 
 div.container {
@@ -32,10 +33,6 @@ div.cuisine {
   font-size: 20px;
   color: ivory;
   text-shadow: 2px 2px 2px #6D6875;
-}
-
-#cuisine-container {
-  margin-top: 5%;
 }
 
 #american {
