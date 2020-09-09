@@ -4,52 +4,86 @@
         <meta charset="UTF-8">
         <meta name="viewport">
         <title>Recipes</title>
-        <link rel="icon" href="images/cooking.gif" type="image/gif" sizes="16x16">
+        <link rel="icon" href="images/cooking.png" type="image/png" sizes="16x16">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="styles/app.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <video autoplay muted loop id="myVideo">
+            <source src="./images/kitchen.mp4" type="video/mp4">
+        </video>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand mb-0 h1" href="#">
-                    <img src="images/logo.gif" width="30" height="30" alt="" loading="lazy">
-                    Recipes
-                </a>
-            </nav>
+            <h1>MyRecipes</h1>
+            <p>Recipes for everyone</p>
         </header>
-        
+
         <div class="container">
-            <div class="row row-cols-4">
-                <div class="col">African</div>
-                <div class="col">American</div>
-                <div class="col">British</div>
-                <div class="col">Cajun</div>
-                <div class="col">Caribbean</div>
-                <div class="col">Chinese</div>
-                <div class="col">Eastern European</div>
-                <div class="col">European</div>
-                <div class="col">French</div>
-                <div class="col">German</div>
-                <div class="col">Greek</div>
-                <div class="col">Indian</div>
-                <div class="col">Irish</div>
-                <div class="col">Italian</div>
-                <div class="col">Japanese</div>
-                <div class="col">Jewish</div>
-                <div class="col">Korean</div>
-                <div class="col">Latin American</div>
-                <div class="col">Mediterranean</div>
-                <div class="col">Mexican</div>
-                <div class="col">Middle Eastern</div>
-                <div class="col">Nordic</div>
-                <div class="col">Southern</div>
-                <div class="col">Spanish</div>
-                <div class="col">Thai</div>
-                <div class="col">Vietnamese</div>
+            <div class="row row-cols-4" id="cuisine-container">
+                <div class="col">
+                    <div class="cuisine" id="american"><strong>American</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="british"><strong>British</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="chinese"><strong>Chinese</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="eastern-european"><strong>Eastern European</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="european"><strong>European</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="french"><strong>French</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="german"><strong>German</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="greek"><strong>Greek</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="indian"><strong>Indian</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="irish"><strong>Irish</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="italian"><strong>Italian</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="japanese"><strong>Japanese</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="korean"><strong>Korean</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="latin-american"><strong>Latin American</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="medditerranean"><strong>Mediterranean</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="mexican"><strong>Mexican</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="middle-eastern"><strong>Middle Eastern</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="southern"><strong>Southern</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="spanish"><strong>Spanish</strong></div>
+                </div>
+                <div class="col">
+                    <div class="cuisine" id="thai"><strong>Thai</strong></div>
+                </div>
             </div>
 
             <div id="search-bar">
-                <form class="form-inline">
+                <form class="form-inline justify-content-center">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="inputPassword2" class="sr-only">Password</label>
                         <input type="text" class="form-control" id="search" placeholder="Enter ingredients">

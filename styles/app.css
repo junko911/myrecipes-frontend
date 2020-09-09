@@ -1,17 +1,149 @@
-div.container {
-  width: 800px;
-  margin: 0 auto;
+body {
+  font-family: 'Roboto Mono', monospace;
 }
 
-div.col {
+#myVideo {
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+header {
+  margin-top: 50px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: ivory;
+}
+
+header h1 {
+  text-shadow: 2px 2px 2px #6D6875;
+}
+
+header p {
+  font-style: italic;
+  text-shadow: 1px 1px 1px #6D6875;
+}
+
+div.container {
+  width: 1200px;
+}
+
+div.cuisine {
   text-align: center;
   border: grey solid 1px;
-  padding: 1.85rem;
-  width: 75rem;
-  height: 5.45rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #CD5C5C
+  padding: 1rem;
+  margin: 1rem 0.25rem;
+  font-size: 20px;
+  color: ivory;
+  text-shadow: 2px 2px 2px #6D6875;
+}
+
+#american {
+  background: url(../images/american.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#british {
+  background: url(../images/british.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#chinese {
+  background: url(../images/chinese.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#eastern-european {
+  background: url(../images/eastern-european.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#european {
+  background: url(../images/european.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#french {
+  background: url(../images/french.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#german {
+  background: url(../images/german.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#greek {
+  background: url(../images/greek.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#indian {
+  background: url(../images/indian.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#irish {
+  background: url(../images/irish.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#italian {
+  background: url(../images/italian.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#japanese {
+  background: url(../images/japanese.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#korean {
+  background: url(../images/korean.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#latin-american {
+  background: url(../images/latin-american.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#medditerranean {
+  background: url(../images/medditerranean.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#mexican {
+  background: url(../images/mexican.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#middle-eastern {
+  background: url(../images/middle-eastern.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#southern {
+  background: url(../images/southern.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#spanish {
+  background: url(../images/spanish.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#thai {
+  background: url(../images/thai.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
+#search-bar {
+  padding-top: 25px;
 }
 
 div.cuisine-bar {
