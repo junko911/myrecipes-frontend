@@ -23,10 +23,15 @@ document.addEventListener("DOMContentLoaded", function(e){
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
 
-                let formInput = ingredientsFormInput.value
+                let formInput = ingredientsFormInput.value.toLowerCase()
                 //use form input to filter and bring up recipes by ingredient
 
-
+                let fetchFilteredRecipes = () => {
+                    fetch(`${apiUrl}/${cuisineType}/?ingredient=${formInput}`)
+                    .then(resp => resp.json())
+                    .then(data => console.log(data))
+                }
+                fetchFilteredRecipes()
 
 
                 cuisineContainer.innerHTML = 
