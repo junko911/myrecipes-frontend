@@ -33,12 +33,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <div class="cuisine-bar">${cuisineCapitalized}</div>
                     <button class="filter-btn" id="dairy" data-status="off">Dairy Free 🥛</button>
                     <button class="filter-btn" id="egg"  data-status="off">Egg Free 🥚</button>
-                    <button class="filter-btn" id="nut"  data-status="off">Nut Free 🌰</button>
-                    <button class="filter-btn" id="peanut"  data-status="off">Peanut Free 🥜</button>
+                    <button class="filter-btn" id="nut"  data-status="off">Nut Free 🥜</button>
                     <button class="filter-btn" id="shellfish"  data-status="off">Shellfish Free 🦐</button>
                     <button class="filter-btn" id="wheat"  data-status="off">Wheat Free 🌾</button>
                     <button class="filter-btn" id="soy"  data-status="off">Soy Free 🌱</button>
-                    <button class="filter-btn" id="fish"  data-status="off">Fish Free 🐟</button>
                 </div><br>
                 `
                 const secondPageContainer = document.querySelector("#second-page")
