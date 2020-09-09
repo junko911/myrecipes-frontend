@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
             let cuisineType = e.target.id
-            let cuisineCapitalized = e.target.firstChild.textContent
+            let cuisineCapitalized = e.target.textContent
 
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
