@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 //render single recipe
                 let renderRecipe = (recipe) => {
                     let recipeId = recipe.id
-                    console.log(recipeContent)
+                    //console.log(recipeContent)
                     let recipeDiv = document.createElement("div")
                     recipeDiv.className = "filtered-recipes"
                     recipeDiv.innerHTML = 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 secondPageContainer.addEventListener("click", function(e){
                    
                     if(e.target.className === "recipe-detail-btn"){
-                         console.log("event")
+                        //  console.log("event")
                          const recipeDetails = document.querySelector(".recipe-detail") 
                          //getElementById filter array and id = matches and use content of element with matching ID
                          e.target.innerHTML = recipeContent
@@ -109,7 +109,23 @@ document.addEventListener("DOMContentLoaded", function(e){
                         console.log(recipeDetails)
                    
                     }   
-            })
+                })
+                /*
+                    const recipeDetailButton = document.querySelector(".recipe-detail-btn")
+                    const recipeDetails = document.querySelector(".recipe-detail")
+                    const commentForm = document.querySelector(".comment-form")
+                    // const commentButton = document.querySelector(".comment-button")
+                    recipeDetailButton.addEventListener("click", function(e){
+                    recipeDropdown = !recipeDropdown
+                    if (recipeDropdown) {
+                        recipeDetails.style.display = "block";
+                        recipeDetailButton.textContent = "Less Detail"
+                      } else {
+                        recipeDetails.style.display = "none";
+                        recipeDetailButton.textContent = "See Detail"
+                      }
+                    })
+                */
                
                 
             //add comments to database 
@@ -138,19 +154,3 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 })
 
-/*
- const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-                const recipeDetails = document.querySelector(".recipe-detail")
-                const commentForm = document.querySelector(".comment-form")
-                // const commentButton = document.querySelector(".comment-button")
-                recipeDetailButton.addEventListener("click", function(e){
-                    recipeDropdown = !recipeDropdown
-                    if (recipeDropdown) {
-                        recipeDetails.style.display = "block";
-                        recipeDetailButton.textContent = "Less Detail"
-                      } else {
-                        recipeDetails.style.display = "none";
-                        recipeDetailButton.textContent = "See Detail"
-                      }
-                })
-*/
