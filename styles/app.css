@@ -71,6 +71,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#irish {
+  background: url(../images/irish.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 div.cuisine-bar {
   text-align: left;
   border: grey solid 1px;
