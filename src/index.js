@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             })
                
                 
+            //add comments to database 
 
                 // commentForm.addEventListener("submit", function(e){
                 //     e.preventDefault()
