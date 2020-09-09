@@ -98,9 +98,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                         if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "none"){
                             recipeDetails.style.display = "block"
                             e.target.textContent = "See Less"
-                        } else {
-                            console.log("else")
+                        } else if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "block"){
+                            recipeDetails.style.display = "none"
+                            e.target.textContent = "See Detail"
                         }
+                
                     }
                 })
              
