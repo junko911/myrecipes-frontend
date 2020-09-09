@@ -12,13 +12,20 @@ body {
 }
 
 header {
-  color: ivory;
   margin-top: 50px;
   width: 100%;
   padding: 20px;
   text-align: center;
-  font-style: italic;
+  color: ivory;
+}
+
+header h1 {
   text-shadow: 2px 2px 2px #6D6875;
+}
+
+header p {
+  font-style: italic;
+  text-shadow: 1px 1px 1px #6D6875;
 }
 
 div.container {
