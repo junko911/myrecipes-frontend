@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     ${recipe.title}
                     <button class="like-btn">Like ❤️</button>
                     <button class="recipe-detail-btn">See Detail</button> 
-                    <div class="recipe-detail" id=${recipeId}> </div>
+                    <div class="recipe-detail" id=${recipeId} style="display: none;"> **RECIPE GOES HERE** </div>
                     <ul class="comments">
                         <li>**USER COMMENT 1**</li>
                         <li>**USER COMMENT 2**</li>
@@ -139,18 +139,18 @@ document.addEventListener("DOMContentLoaded", function(e){
 })
 
 /*
- // <div class="filtered-recipes">
-                //     **RECIPE TITLE**
-                //     <button class="like-btn">Like ❤️</button>
-                //     <button class="recipe-detail-btn">See Detail</button> //event listener - based on when user clicks, user can see detail
-                //     <div class="recipe-detail" style="display: none;"> **RECIPE GOES HERE** </div>
-                //     <ul class="comments">
-                //         <li>**USER COMMENT**</li>
-                //         <li>**USER COMMENT 2**</li>
-                //     </ul>
-                //     <form class="comment-form">
-                //         <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
-                //         <button class="comment-button" type="submit">Add Comment</button>
-                //     </form>
-                // </div>
+ const recipeDetailButton = document.querySelector(".recipe-detail-btn")
+                const recipeDetails = document.querySelector(".recipe-detail")
+                const commentForm = document.querySelector(".comment-form")
+                // const commentButton = document.querySelector(".comment-button")
+                recipeDetailButton.addEventListener("click", function(e){
+                    recipeDropdown = !recipeDropdown
+                    if (recipeDropdown) {
+                        recipeDetails.style.display = "block";
+                        recipeDetailButton.textContent = "Less Detail"
+                      } else {
+                        recipeDetails.style.display = "none";
+                        recipeDetailButton.textContent = "See Detail"
+                      }
+                })
 */
