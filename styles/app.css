@@ -105,6 +105,11 @@ div.cuisine {
   background-size: 100% auto;
 }
 
+#medditerranean {
+  background: url(../images/medditerranean.jpg) no-repeat center;
+  background-size: 100% auto;
+}
+
 #search-bar {
   padding-top: 25px;
 }
