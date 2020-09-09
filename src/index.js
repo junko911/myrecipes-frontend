@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function(e){
+
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
     const ingredientsFormInput = document.querySelector(".form-control")
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }
                 fetchFilteredRecipes()
 
-                //render single recipe
+//                 //render single recipe
                 let renderRecipe = (recipe) => {
                     let recipeId = recipe.id
                     //console.log(recipeContent)
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <br>
                     ${recipe.title}
                     <button class="like-btn">Like ❤️</button>
-                    <button class="recipe-detail-btn">See Detail</button> 
+                    <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
                     <div class="recipe-detail" id=${recipeId} style="display: none;"> **RECIPE GOES HERE** </div>
                     <ul class="comments">
                         <li>**USER COMMENT 1**</li>
@@ -76,81 +77,82 @@ document.addEventListener("DOMContentLoaded", function(e){
                     secondPageContainer.append(recipeDiv)
                 }
 
-                //render all recipes
+//                 //render all recipes
                 let renderRecipes = (recipesArray) => {
                     recipesArray.forEach(recipe => {
                         renderRecipe(recipe)
                     })
                 }
 
+//                 // const recipeDetails = document.querySelector(".recipe-detail") 
+//                 // console.log(recipeDetails)
+//                 // const recipeDetailButton = document.querySelector(".recipe-detail-btn")
+//                 // console.log(recipeDetailButton)
 
-                // const recipeDetails = document.querySelector(".recipe-detail") 
-                // console.log(recipeDetails)
-                // const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-                // console.log(recipeDetailButton)
-                const commentForm = document.querySelector(".comment-form")
-            // const commentButton = document.querySelector(".comment-button")
-            
-             
+//             //const commentForm = document.querySelector(".comment-form")
+//             // const commentButton = document.querySelector(".comment-button")
                 secondPageContainer.addEventListener("click", function(e){
-                   
                     if(e.target.className === "recipe-detail-btn"){
-                        //  console.log("event")
-                         const recipeDetails = document.querySelector(".recipe-detail") 
-                         //getElementById filter array and id = matches and use content of element with matching ID
-                         e.target.innerHTML = recipeContent
-                          // if(e.target){
-                    //     console.log("click")
-                    //     if(recipeDetails.innerHTML === ""){
-                    //     console.log("empty")
-                    //    
-                    //     } 
-                    // }
-                        console.log(recipeDetails)
-                   
-                    }   
+                        const recipeDetails = e.target.nextElementSibling
+                        //         console.dir(recipeDetails)
+                        if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "none"){
+                            recipeDetails.style.display === "block"
+                            //             e.target.textContent = "See Less"
+                        } else {
+                            console.log("else")
+                        }
+                    }
                 })
-                /*
-                    const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-                    const recipeDetails = document.querySelector(".recipe-detail")
-                    const commentForm = document.querySelector(".comment-form")
-                    // const commentButton = document.querySelector(".comment-button")
-                    recipeDetailButton.addEventListener("click", function(e){
-                    recipeDropdown = !recipeDropdown
-                    if (recipeDropdown) {
-                        recipeDetails.style.display = "block";
-                        recipeDetailButton.textContent = "Less Detail"
-                      } else {
-                        recipeDetails.style.display = "none";
-                        recipeDetailButton.textContent = "See Detail"
-                      }
-                    })
-                */
+             
                
-                
-            //add comments to database 
-
-                // commentForm.addEventListener("submit", function(e){
-                //     e.preventDefault()
-                //     let newComment = document.querySelector(".comment-input").value
-
-                //     // fetch(commentsUrl, {
-                //     //     method: "POST",
-                //     //     headers:{
-                //     //         "Content-Type": "application.json",
-                //     //         "Accepts": "application/json"
-                //     //     },
-                //     //     body: JSON.stringify({
-                //     //         comments: newComment
-                //     //     })
-                //     // })
-                //     // .then(resp => resp.json())
-                //     // .then(recipe => renderRecipe(recipe))
-                // })
+              
             })
-                
         }
     })
-
 })
 
+
+ /*
+//                     const recipeDetailButton = document.querySelector(".recipe-detail-btn")
+//                     const recipeDetails = document.querySelector(".recipe-detail")
+//                     const commentForm = document.querySelector(".comment-form")
+//                     // const commentButton = document.querySelector(".comment-button")
+//                     recipeDetailButton.addEventListener("click", function(e){
+//                     recipeDropdown = !recipeDropdown
+//                     if (recipeDropdown) {
+//                         recipeDetails.style.display = "block";
+//                         recipeDetailButton.textContent = "Less Detail"
+//                       } else {
+//                         recipeDetails.style.display = "none";
+//                         recipeDetailButton.textContent = "See Detail"
+//                       }
+//                     })
+//                 */
+
+//add comments to database 
+
+//                 // commentForm.addEventListener("submit", function(e){
+//                 //     e.preventDefault()
+//                 //     let newComment = document.querySelector(".comment-input").value
+
+//                 //     // fetch(commentsUrl, {
+//                 //     //     method: "POST",
+//                 //     //     headers:{
+//                 //     //         "Content-Type": "application.json",
+//                 //     //         "Accepts": "application/json"
+//                 //     //     },
+//                 //     //     body: JSON.stringify({
+//                 //     //         comments: newComment
+//                 //     //     })
+//                 //     // })
+//                 //     // .then(resp => resp.json())
+//                 //     // .then(recipe => renderRecipe(recipe))
+//                 //       
+//                 // })
+
+
+
+                   
+                    
+                        
+              
