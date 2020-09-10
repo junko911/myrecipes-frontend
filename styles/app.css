@@ -173,7 +173,7 @@ div.cuisine-bar {
 }
 
 div.filtered-recipes {
-  background: ivory;
+  background:rgba(255, 255, 240, 0.5);
   margin-bottom: 15px;
   padding: 1rem;
 }
