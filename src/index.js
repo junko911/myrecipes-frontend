@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function(e){
 
     const cuisineContainer = document.querySelector(".container")
@@ -10,17 +9,27 @@ document.addEventListener("DOMContentLoaded", function(e){
     let cuisineType = ""
     let ingredient = ""
 
-    let fetchApiData = () => {
-        fetch(apiUrl)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-    }
-    fetchApiData()
+    // let fetchApiData = () => {
+    //     fetch(apiUrl)
+    //     .then(resp => resp.json())
+    //     .then(data => console.log(data))
+    // }
+    // fetchApiData()
 
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
             cuisineType = e.target.id
             let cuisineCapitalized = e.target.textContent
+
+            document.querySelectorAll(".cuisine").forEach(e => e.classList.remove("clicked"))
+            e.target.classList.add("clicked")
+            document.querySelectorAll(".cuisine").forEach(e => {
+                if (e.classList.contains('clicked') === false) {
+                    e.style.opacity = "0.5"
+                } else {
+                    e.style.opacity = ""
+                }
+            })
 
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
@@ -42,8 +51,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <div class="recipe-container"></div>
                 </div><br>
                 `
-                document.querySelector("video").remove()
-                document.body.style.background = "url(images/kitchen.jpg) no-repeat center"
                 const recipeContainer = document.querySelector(".recipe-container")
             
                 let fetchFilteredRecipes = () => {
@@ -148,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         container.append(recipeDiv)
     }
 
+    // Rerender recipe when filter buttons are clicked
     const fetchRecipes = container => {
         const filterKeyword = filterKeywords.join('')
         if (ingredient === "") {

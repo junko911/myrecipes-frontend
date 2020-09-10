@@ -1,14 +1,6 @@
 body {
   font-family: 'Roboto Mono', monospace;
-}
-
-#myVideo {
-  position: fixed;
-  z-index: -1;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  background: url(../images/kitchen.jpg) no-repeat center;
 }
 
 header {
@@ -34,12 +26,20 @@ div.container {
 
 div.cuisine {
   text-align: center;
-  border: grey solid 1px;
   padding: 1rem;
   margin: 1rem 0.25rem;
   font-size: 20px;
   color: ivory;
   text-shadow: 2px 2px 2px #6D6875;
+}
+
+div.cuisine:hover {
+  cursor: pointer;
+  box-shadow: 0 0 40px ivory;
+}
+
+div.clicked {
+  box-shadow: 0 0 40px ivory;
 }
 
 #american {
