@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         const ingredients = []
         recipe.ingredients.forEach( ingredient => ingredients.push(ingredient.name) )
+        const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         
         let recipeDiv = document.createElement("div")
         recipeDiv.className = "filtered-recipes"
@@ -143,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         </div>
         <div class="recipe-detail" id=${recipeId} style="display: none;">
             <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
-            <span>${recipe.content}</span>
+            <span>${content}</span>
         </div>
         <ul class="comments">
         <li>**USER COMMENT 1**</li>
