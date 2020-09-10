@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
                 const secondPageContainer = document.querySelector("#second-page")                
                 secondPageContainer.addEventListener("click", function(e){
-                    if(e.target.className === "recipe-detail-btn"){
+                    if(e.target.classList.contains("recipe-detail-btn")){
                         const recipeDetails = e.target.parentElement.nextElementSibling
                             console.log("button click working")
                         if(recipeDetails.style.display === "none"){
@@ -147,8 +147,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         <div class="recipe-info">
             <img src="${recipe.image}">
             <h3>${recipe.title}</h3>
-            <button class="like-btn"><i class='fas'>&#xf004;</i></button><span>${recipe.likes} likes</span>
-            <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
+            <button class="like-btn"><i class='fas'>&#xf004;</i></button>
+            <span>${recipe.likes} Likes</span>
+            <button class="recipe-detail-btn btn btn-info btn-sm" data-id=${recipeId}>See Detail</button> 
         </div>
         <div class="recipe-detail" style="display: none;">
             <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
