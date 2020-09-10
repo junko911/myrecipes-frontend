@@ -146,11 +146,6 @@ div.clicked {
   padding-top: 25px;
 }
 
-div#second-page {
-  width: 800px;
-  margin: 0 auto;
-}
-
 div.cuisine-bar {
   color: ivory;
   padding-left: 4rem;
@@ -169,17 +164,18 @@ div.filtered-recipes {
 div.filtered-recipes img {
   float: right;
   width: 200px;
+  margin: 0 0 1rem 1rem;
 }
 
 div.recipe-detail {
-  text-align: left;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 75rem;
-  height: 5.45rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #CD5C5C
+  /* text-align: left; */
+  /* border: grey solid 1px; */
+  padding: 1rem 0;
+  /* width: 75rem; */
+  /* height: 5.45rem; */
+  /* display: inline-grid; */
+  /* margin: 1rem 2rem; */
+  /* box-shadow: 3px 4px #CD5C5C */
 }
 
 .comments {

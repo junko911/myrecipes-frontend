@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                 const secondPageContainer = document.querySelector("#second-page")                
                 secondPageContainer.addEventListener("click", function(e){
                     if(e.target.className === "recipe-detail-btn"){
-                        const recipeDetails = e.target.nextElementSibling
-                                console.log("button click working")
+                        const recipeDetails = e.target.parentElement.nextElementSibling
+                            console.log("button click working")
                         if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "none"){
                             recipeDetails.style.display = "block"
                             e.target.textContent = "See Less"
@@ -130,11 +130,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         recipeDiv.className = "filtered-recipes"
         recipeDiv.innerHTML = 
         `
-        <br>
-        <img src="${recipe.image}">
-        <h3>${recipe.title}</h3>
-        <button class="like-btn">Like ❤️</button>
-        <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
+        <div class="recipe-info">
+            <img src="${recipe.image}">
+            <h3>${recipe.title}</h3>
+            <button class="like-btn">Like ❤️</button>
+            <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
+        </div>
         <div class="recipe-detail" id=${recipeId} style="display: none;"> ${recipe.content} </div>
         <ul class="comments">
         <li>**USER COMMENT 1**</li>
