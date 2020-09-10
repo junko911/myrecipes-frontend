@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     let cuisineType = ""
     let ingredient = ""
 
+    let addCommentToList = (ul, comment) => {
+        let newCommentLi = document.createElement("li")
+        newCommentLi.textContent = comment
+        ul.append(newCommentLi)
+    }
+
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
             cuisineType = e.target.id
@@ -82,13 +88,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                 recipesContainer.addEventListener("submit", function(e){
                     e.preventDefault()
                     console.log(e.target.id)
-                    let newComment = e.target.children[0].value
-                    let newCommentLi = document.createElement("li")
-                    newCommentLi.textContent = newComment
                     let recipeId = e.target.id
-
+                    let newComment = e.target.children[0].value
                     let comments = e.target.previousElementSibling
-                    comments.append(newCommentLi)
+                    addCommentToList(comments, newComment)
                     e.target.reset()
 
 
@@ -103,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                             "recipe_id": recipeId
                         })
                     })
+                     
                 })
                 
               
@@ -125,13 +129,13 @@ document.addEventListener("DOMContentLoaded", function(e){
               //render all recipes
     const renderRecipes = (container, recipesArray) => {
         document.querySelector('.recipe-container').innerHTML = ""
-
         recipesArray.forEach(recipe => {
             renderRecipe(container, recipe)
         })
     }
                 //render single recipe
     const renderRecipe = (container, recipe) => {
+       
         let recipeId = recipe.id
 
         const ingredients = []
@@ -155,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
             <span>${content}</span>
         </div>
+
         <ul class="comments">
         </ul>
         <form class="comment-form" id=${recipe.id}>
@@ -165,6 +170,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         `
 
         container.append(recipeDiv)
+        let commentsUl = recipeDiv.querySelector(".comments")
+        recipe.comments.forEach(comment => {
+            addCommentToList(commentsUl, comment.content)
+        })
+
     }
 
     // Rerender recipe when filter buttons are clicked
