@@ -152,15 +152,20 @@ div.cuisine-nav {
 }
 
 div.cuisine-nav button {
-  background-color:rgba(255, 205, 178, 0.5);
+  background-color: rgba(255, 205, 178);
   border-color: #FFB4A2;
   text-align: center;
-  font-size: 15px;
-  border-radius: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 div.cuisine-nav button:focus {
   outline: none;
+}
+
+div.recipe-info h3 {
+  font-style: italic;
 }
 
 div.cuisine-bar {
