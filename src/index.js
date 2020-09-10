@@ -127,7 +127,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     const renderRecipe = (container, recipe) => {
         let recipeId = recipe.id
         console.log(recipe.content)
-        //console.log(recipeContent)
+
+        const ingredients = []
+        recipe.ingredients.forEach( ingredient => ingredients.push(ingredient.name) )
+        
         let recipeDiv = document.createElement("div")
         recipeDiv.className = "filtered-recipes"
         recipeDiv.innerHTML = 
@@ -138,7 +141,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             <button class="like-btn">Like ❤️</button>
             <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
         </div>
-        <div class="recipe-detail" id=${recipeId} style="display: none;"> ${recipe.content} </div>
+        <div class="recipe-detail" id=${recipeId} style="display: none;">
+            <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
+            <span>${recipe.content}</span>
+        </div>
         <ul class="comments">
         <li>**USER COMMENT 1**</li>
             <li>**USER COMMENT 2**</li>
@@ -149,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         </form>
         <br>
         `
+
         container.append(recipeDiv)
     }
 

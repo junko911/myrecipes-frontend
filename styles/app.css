@@ -195,6 +195,11 @@ div.recipe-detail {
   /* box-shadow: 3px 4px #CD5C5C */
 }
 
+span.ingredient {
+  margin-bottom: 20px;
+  display: block;
+}
+
 .comments {
   list-style-type: none;
   margin-left: 0;
