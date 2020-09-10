@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
                 //render single recipe
     const renderRecipe = (container, recipe) => {
-        console.log(recipe)
+       
         let recipeId = recipe.id
         let recipeDiv = document.createElement("div")
         recipeDiv.dataset.id = recipe.id
