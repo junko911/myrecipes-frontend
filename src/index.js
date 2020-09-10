@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     const ingredientsFormInput = document.querySelector(".form-control")
     const apiUrl = "http://localhost:3000/api/v1/cuisines"
     const commentsUrl = "http://localhost:3000/api/v1/comments"
-    let recipeContent
     let filterKeywords = []
     let cuisineType = ""
     let ingredient = ""
@@ -62,23 +61,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                     .then(resp => resp.json())
                     .then(data => {
                         allRecipesArray = data 
-                        console.log(allRecipesArray)
                         renderRecipes(recipeContainer, data)})  
                 }
                 fetchFilteredRecipes()
-
-                
-                
-
-
-//                 // const recipeDetails = document.querySelector(".recipe-detail") 
-//                 // console.log(recipeDetails)
-//                 // const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-//                 // console.log(recipeDetailButton)
-
-
-//             //const commentForm = document.querySelector(".comment-form")
-//             // const commentButton = document.querySelector(".comment-button")
 
                 const secondPageContainer = document.querySelector("#second-page")                
                 secondPageContainer.addEventListener("click", function(e){
@@ -95,9 +80,37 @@ document.addEventListener("DOMContentLoaded", function(e){
                 
                     }
                 })
-                
 
-               
+
+    //add comments to database 
+                const recipesContainer = cuisineContainer.children[0].children[1]
+                
+                recipesContainer.addEventListener("submit", function(e){
+                    e.preventDefault()
+                    console.log(e.target.id)
+                    let newComment = e.target.children[0].value
+                    let newCommentLi = document.createElement("li")
+                    newCommentLi.textContent = newComment
+                    let recipeId = e.target.id
+
+                    let comments = e.target.previousElementSibling
+                    comments.append(newCommentLi)
+                    e.target.reset()
+
+
+                    fetch(commentsUrl, {
+                        method: "POST",
+                        headers:{
+                            "Content-Type": "application/json",
+                            "Accepts": "application/json"
+                        },
+                        body: JSON.stringify({
+                            "content": newComment,
+                            "recipe_id": recipeId
+                        })
+                    })
+                })
+                
               
             })
         } else if (e.target.className === "filter-btn") {
@@ -115,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         }        
     })
     
-//                 //render all recipes
+              //render all recipes
     const renderRecipes = (container, recipesArray) => {
         document.querySelector('.recipe-container').innerHTML = ""
 
@@ -123,34 +136,33 @@ document.addEventListener("DOMContentLoaded", function(e){
             renderRecipe(container, recipe)
         })
     }
-//                 //render single recipe
+                //render single recipe
     const renderRecipe = (container, recipe) => {
         let recipeId = recipe.id
-        console.log(recipe.content)
 
         const ingredients = []
         recipe.ingredients.forEach( ingredient => ingredients.push(ingredient.name) )
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         
         let recipeDiv = document.createElement("div")
+        recipeDiv.dataset.id = recipe.id
         recipeDiv.className = "filtered-recipes"
         recipeDiv.innerHTML = 
         `
+
         <div class="recipe-info">
             <img src="${recipe.image}">
             <h3>${recipe.title}</h3>
             <button class="like-btn">Like ❤️</button>
             <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
         </div>
-        <div class="recipe-detail" id=${recipeId} style="display: none;">
+        <div class="recipe-detail" style="display: none;">
             <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
             <span>${content}</span>
         </div>
         <ul class="comments">
-        <li>**USER COMMENT 1**</li>
-            <li>**USER COMMENT 2**</li>
         </ul>
-        <form class="comment-form">
+        <form class="comment-form" id=${recipe.id}>
             <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
             <button class="comment-button" type="submit">Add Comment</button>
         </form>
@@ -177,44 +189,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 
- /*
-//                     const recipeDetailButton = document.querySelector(".recipe-detail-btn")
-//                     const recipeDetails = document.querySelector(".recipe-detail")
-//                     const commentForm = document.querySelector(".comment-form")
-//                     // const commentButton = document.querySelector(".comment-button")
-//                     recipeDetailButton.addEventListener("click", function(e){
-//                     recipeDropdown = !recipeDropdown
-//                     if (recipeDropdown) {
-//                         recipeDetails.style.display = "block";
-//                         recipeDetailButton.textContent = "Less Detail"
-//                       } else {
-//                         recipeDetails.style.display = "none";
-//                         recipeDetailButton.textContent = "See Detail"
-//                       }
-//                     })
-//                 */
 
-//add comments to database 
-
-//                 // commentForm.addEventListener("submit", function(e){
-//                 //     e.preventDefault()
-//                 //     let newComment = document.querySelector(".comment-input").value
-
-//                 //     // fetch(commentsUrl, {
-//                 //     //     method: "POST",
-//                 //     //     headers:{
-//                 //     //         "Content-Type": "application.json",
-//                 //     //         "Accepts": "application/json"
-//                 //     //     },
-//                 //     //     body: JSON.stringify({
-//                 //     //         comments: newComment
-//                 //     //     })
-//                 //     // })
-//                 //     // .then(resp => resp.json())
-//                 //     // .then(recipe => renderRecipe(recipe))
-//                 //       
-//                 // })
-
+              
 
 
                    
