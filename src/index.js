@@ -9,18 +9,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     let cuisineType = ""
     let ingredient = ""
 
-    // let fetchApiData = () => {
-    //     fetch(apiUrl)
-    //     .then(resp => resp.json())
-    //     .then(data => console.log(data))
-    // }
-    // fetchApiData()
-
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
             cuisineType = e.target.id
             let cuisineCapitalized = e.target.textContent
 
+            // Highlight the clicked button and hide the others
             document.querySelectorAll(".cuisine").forEach(e => e.classList.remove("clicked"))
             e.target.classList.add("clicked")
             document.querySelectorAll(".cuisine").forEach(e => {
@@ -70,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                     if(e.target.className === "recipe-detail-btn"){
                         const recipeDetails = e.target.parentElement.nextElementSibling
                             console.log("button click working")
-                        if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "none"){
+                        if(recipeDetails.style.display === "none"){
                             recipeDetails.style.display = "block"
                             e.target.textContent = "See Less"
-                        } else if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "block"){
+                        } else if(recipeDetails.style.display === "block"){
                             recipeDetails.style.display = "none"
                             e.target.textContent = "See Detail"
                         }
