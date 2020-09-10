@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <div id="second-page">
                     <div class="cuisine-nav">
                         <div class="cuisine-bar"><h2>${cuisineCapitalized}</h2></div>
-                        <button class="filter-btn" id="dairy" data-status="off">Dairy Free 🥛</button>
-                        <button class="filter-btn" id="egg"  data-status="off">Egg Free 🥚</button>
-                        <button class="filter-btn" id="nut"  data-status="off">Nut Free 🥜</button>
-                        <button class="filter-btn" id="shellfish"  data-status="off">Shellfish Free 🦐</button>
-                        <button class="filter-btn" id="wheat"  data-status="off">Wheat Free 🌾</button>
-                        <button class="filter-btn" id="soy"  data-status="off">Soy Free 🌱</button>
+                        <button class="filter-btn" id="dairy" data-status="off">Dairy Free🥛</button>
+                        <button class="filter-btn" id="egg"  data-status="off">Egg Free🥚</button>
+                        <button class="filter-btn" id="nut"  data-status="off">Nut Free🥜</button>
+                        <button class="filter-btn" id="shellfish"  data-status="off">Shellfish Free🦐</button>
+                        <button class="filter-btn" id="wheat"  data-status="off">Wheat Free🌾</button>
+                        <button class="filter-btn" id="soy"  data-status="off">Soy Free🌱</button>
                     </div>
                     <div class="recipe-container"></div>
                 </div><br>
@@ -103,10 +103,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         } else if (e.target.className === "filter-btn") {
             if (e.target.dataset.status === "off") {
                 e.target.dataset.status = "on"
+                e.target.style.opacity = "0.5"
                 filterKeywords.push(`&${e.target.id}_free=1`)
                 fetchRecipes(e.target.parentElement.nextElementSibling)
             } else {
                 e.target.dataset.status = "off"
+                e.target.style.opacity = ""
                 filterKeywords = filterKeywords.filter( word => word !== `&${e.target.id}_free=1`)
                 fetchRecipes(e.target.parentElement.nextElementSibling)
             }

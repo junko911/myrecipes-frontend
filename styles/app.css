@@ -146,6 +146,22 @@ div.clicked {
   padding-top: 25px;
 }
 
+div.cuisine-nav {
+  margin-bottom: 10px;
+}
+
+div.cuisine-nav button {
+  background-color: #FFCDB2;
+  border-color: #FFB4A2;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+div.cuisine-nav button:focus {
+  outline: none;
+}
+
 div.cuisine-bar {
   color: ivory;
   padding-left: 4rem;
@@ -153,6 +169,7 @@ div.cuisine-bar {
   width: 100%;
   height: 4rem;
   text-shadow: 2px 2px 2px #6D6875;
+  margin-bottom: 10px;
 }
 
 div.filtered-recipes {
