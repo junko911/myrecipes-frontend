@@ -131,7 +131,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         recipeDiv.innerHTML = 
         `
         <br>
-        ${recipe.title}
+        <img src="${recipe.image}">
+        <h3>${recipe.title}</h3>
         <button class="like-btn">Like ❤️</button>
         <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
         <div class="recipe-detail" id=${recipeId} style="display: none;"> ${recipe.content} </div>

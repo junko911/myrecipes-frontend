@@ -160,8 +160,15 @@ div.cuisine-bar {
   text-shadow: 2px 2px 2px #6D6875;
 }
 
-div.recipe-container {
+div.filtered-recipes {
   background: ivory;
+  margin-bottom: 15px;
+  padding: 1rem;
+}
+
+div.filtered-recipes img {
+  float: right;
+  width: 200px;
 }
 
 div.recipe-detail {
