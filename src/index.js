@@ -136,8 +136,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         ${recipe.title}
         <button class="like-btn">Like ❤️</button>
         <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
-        <div class="recipe-detail" id=${recipeId} style="display: none;"> ${recipe.content} </div>
-        <ul class="comments" id=${recipe.id}>
+        <div class="recipe-detail"  style="display: none;"> ${recipe.content} </div>
+        <ul class="comments" >
         </ul>
         <form class="comment-form" id=${recipe.id}>
             <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
