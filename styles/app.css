@@ -1,6 +1,7 @@
 body {
   font-family: 'Roboto Mono', monospace;
   background: url(../images/kitchen.jpg) no-repeat center;
+  background-attachment: fixed;
 }
 
 header {
@@ -154,7 +155,7 @@ div.cuisine-nav button {
   background-color:rgba(255, 205, 178, 0.5);
   border-color: #FFB4A2;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 20px;
 }
 
@@ -165,15 +166,15 @@ div.cuisine-nav button:focus {
 div.cuisine-bar {
   color: ivory;
   padding-left: 4rem;
-  padding-top: 0.8rem;
+  padding-top: 4rem;
   width: 100%;
-  height: 4rem;
+  height: 10rem;
   text-shadow: 2px 2px 2px #6D6875;
   margin-bottom: 10px;
 }
 
 div.filtered-recipes {
-  background:rgba(255, 255, 240, 0.5);
+  background:rgba(255, 255, 240, 0.75);
   margin-bottom: 15px;
   padding: 1rem;
 }

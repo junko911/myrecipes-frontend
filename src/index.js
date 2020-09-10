@@ -52,10 +52,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                 </div><br>
                 `
 
-                document.querySelector(".cuisine-bar").style.background = `url(./images/${cuisineType}.jpg) no-repeat center`
+                document.querySelector(".cuisine-bar").style.background = `url(./images/${cuisineType}.jpg) center center no-repeat`
                 document.querySelector(".cuisine-bar").style.backgroundSize = "cover"
+
                 const recipeContainer = document.querySelector(".recipe-container")
-            
+                
                 let fetchFilteredRecipes = () => {
                     fetch(`${apiUrl}/${cuisineType}/?ingredient=${ingredient}`)
                     .then(resp => resp.json())
