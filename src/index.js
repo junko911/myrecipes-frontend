@@ -79,10 +79,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                     e.preventDefault()
                     console.log(e.target.id)
                     let newComment = e.target.children[0].value
-                    console.log(newComment)
                     let newCommentLi = document.createElement("li")
                     newCommentLi.textContent = newComment
-                    console.log(newCommentLi)
                     let recipeId = e.target.id
 
                     let comments = e.target.previousElementSibling
@@ -97,11 +95,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                             "Accepts": "application/json"
                         },
                         body: JSON.stringify({
-                            comments: newComment
+                            "content": newComment,
+                            "recipe_id": recipeId
                         })
                     })
-                    // .then(resp => resp.json())
-                    // .then(data => renderRecipes(recipeContainer, data))  
                 })
                 
               
