@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 `
                 <div id="second-page">
                     <div class="cuisine-nav">
-                        <div class="cuisine-bar">${cuisineCapitalized}</div>
+                        <div class="cuisine-bar"><h2>${cuisineCapitalized}</h2></div>
                         <button class="filter-btn" id="dairy" data-status="off">Dairy Free 🥛</button>
                         <button class="filter-btn" id="egg"  data-status="off">Egg Free 🥚</button>
                         <button class="filter-btn" id="nut"  data-status="off">Nut Free 🥜</button>
@@ -52,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <div class="recipe-container"></div>
                 </div><br>
                 `
+
+                document.querySelector(".cuisine-bar").style.background = `url(./images/${cuisineType}.jpg) no-repeat center`
+                document.querySelector(".cuisine-bar").style.backgroundSize = "cover"
                 const recipeContainer = document.querySelector(".recipe-container")
             
                 let fetchFilteredRecipes = () => {

@@ -146,15 +146,22 @@ div.clicked {
   padding-top: 25px;
 }
 
+div#second-page {
+  width: 800px;
+  margin: 0 auto;
+}
+
 div.cuisine-bar {
-  text-align: left;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 50rem;
-  height: 3.8rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #CD5C5C
+  color: ivory;
+  padding-left: 4rem;
+  padding-top: 1rem;
+  width: 100%;
+  height: 4rem;
+  text-shadow: 2px 2px 2px #6D6875;
+}
+
+div.recipe-container {
+  background: ivory;
 }
 
 div.recipe-detail {
