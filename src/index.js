@@ -137,9 +137,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     const renderRecipe = (container, recipe) => {
        
         let recipeId = recipe.id
-
-        const ingredients = []
-        recipe.ingredients.forEach( ingredient => ingredients.push(ingredient.name) )
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         
         let recipeDiv = document.createElement("div")
@@ -156,7 +153,11 @@ document.addEventListener("DOMContentLoaded", function(e){
             <button class="recipe-detail-btn btn btn-info btn-sm" data-id=${recipeId}>See Detail</button> 
         </div>
         <div class="recipe-detail" style="display: none;">
-            <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
+            <div class="ingredient">
+                <h5>Ingredients:</h5>
+                <ul>
+                </ul>
+            </div>
             <span>${content}</span>
         </div>
 
@@ -170,6 +171,14 @@ document.addEventListener("DOMContentLoaded", function(e){
         `
 
         container.append(recipeDiv)
+
+        const ingredientsUl = recipeDiv.children[1].children[0].children[1]
+        recipe.ingredients.forEach(ingredient => {
+            const li = document.createElement('li')
+            li.textContent = `${ingredient.name} ${ingredient.amount}`
+            ingredientsUl.append(li)
+        })
+
         let commentsUl = recipeDiv.querySelector(".comments")
         recipe.comments.forEach(comment => {
             addCommentToList(commentsUl, comment.content)

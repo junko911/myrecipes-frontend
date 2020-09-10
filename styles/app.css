@@ -193,17 +193,24 @@ button.like-btn {
   box-shadow: 1px 1px 1px #6D6875;
 }
 
+.ingredient h5 {
+  font-weight: bold;
+}
+
 i.fas {
   font-size: 15px;
+}
+
+button.recipe-detail-btn {
+  margin-left: 20px;
 }
 
 div.recipe-detail {
   padding: 1rem 0;
 }
 
-span.ingredient {
+div.ingredient {
   margin-bottom: 20px;
-  display: block;
 }
 
 .comments {
