@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function(e){
 
     const cuisineContainer = document.querySelector(".container")
@@ -10,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     let cuisineType = ""
     let ingredient = ""
 
-    let fetchApiData = () => {
-        fetch(apiUrl)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-    }
-    fetchApiData()
+    // let fetchApiData = () => {
+    //     fetch(apiUrl)
+    //     .then(resp => resp.json())
+    //     .then(data => console.log(data))
+    // }
+    // fetchApiData()
 
     let addCommentToList = (ul, comment) => {
         let newCommentLi = document.createElement("li")
@@ -28,6 +27,16 @@ document.addEventListener("DOMContentLoaded", function(e){
             cuisineType = e.target.id
             let cuisineCapitalized = e.target.textContent
 
+            document.querySelectorAll(".cuisine").forEach(e => e.classList.remove("clicked"))
+            e.target.classList.add("clicked")
+            document.querySelectorAll(".cuisine").forEach(e => {
+                if (e.classList.contains('clicked') === false) {
+                    e.style.opacity = "0.5"
+                } else {
+                    e.style.opacity = ""
+                }
+            })
+
             ingredientsForm.addEventListener("submit", function(e){
                 e.preventDefault()
 
@@ -37,19 +46,20 @@ document.addEventListener("DOMContentLoaded", function(e){
                 `
                 <div id="second-page">
                     <div class="cuisine-nav">
-                        <div class="cuisine-bar">${cuisineCapitalized}</div>
-                        <button class="filter-btn" id="dairy" data-status="off">Dairy Free 🥛</button>
-                        <button class="filter-btn" id="egg"  data-status="off">Egg Free 🥚</button>
-                        <button class="filter-btn" id="nut"  data-status="off">Nut Free 🥜</button>
-                        <button class="filter-btn" id="shellfish"  data-status="off">Shellfish Free 🦐</button>
-                        <button class="filter-btn" id="wheat"  data-status="off">Wheat Free 🌾</button>
-                        <button class="filter-btn" id="soy"  data-status="off">Soy Free 🌱</button>
+                        <div class="cuisine-bar"><h2>${cuisineCapitalized}</h2></div>
+                        <button class="filter-btn" id="dairy" data-status="off">Dairy Free🥛</button>
+                        <button class="filter-btn" id="egg"  data-status="off">Egg Free🥚</button>
+                        <button class="filter-btn" id="nut"  data-status="off">Nut Free🥜</button>
+                        <button class="filter-btn" id="shellfish"  data-status="off">Shellfish Free🦐</button>
+                        <button class="filter-btn" id="wheat"  data-status="off">Wheat Free🌾</button>
+                        <button class="filter-btn" id="soy"  data-status="off">Soy Free🌱</button>
                     </div>
                     <div class="recipe-container"></div>
                 </div><br>
                 `
-                document.querySelector("video").remove()
-                document.body.style.background = "url(images/kitchen.jpg) no-repeat center"
+
+                document.querySelector(".cuisine-bar").style.background = `url(./images/${cuisineType}.jpg) no-repeat center`
+                document.querySelector(".cuisine-bar").style.backgroundSize = "cover"
                 const recipeContainer = document.querySelector(".recipe-container")
             
                 let fetchFilteredRecipes = () => {
@@ -64,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                 const secondPageContainer = document.querySelector("#second-page")                
                 secondPageContainer.addEventListener("click", function(e){
                     if(e.target.className === "recipe-detail-btn"){
-                        const recipeDetails = e.target.nextElementSibling
-                                console.log("button click working")
+                        const recipeDetails = e.target.parentElement.nextElementSibling
+                            console.log("button click working")
                         if(recipeDetails.id === e.target.dataset.id && recipeDetails.style.display === "none"){
                             recipeDetails.style.display = "block"
                             e.target.textContent = "See Less"
@@ -110,10 +120,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         } else if (e.target.className === "filter-btn") {
             if (e.target.dataset.status === "off") {
                 e.target.dataset.status = "on"
+                e.target.style.opacity = "0.5"
                 filterKeywords.push(`&${e.target.id}_free=1`)
                 fetchRecipes(e.target.parentElement.nextElementSibling)
             } else {
                 e.target.dataset.status = "off"
+                e.target.style.opacity = ""
                 filterKeywords = filterKeywords.filter( word => word !== `&${e.target.id}_free=1`)
                 fetchRecipes(e.target.parentElement.nextElementSibling)
             }
@@ -131,16 +143,28 @@ document.addEventListener("DOMContentLoaded", function(e){
     const renderRecipe = (container, recipe) => {
        
         let recipeId = recipe.id
+
+        const ingredients = []
+        recipe.ingredients.forEach( ingredient => ingredients.push(ingredient.name) )
+        const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
+        
         let recipeDiv = document.createElement("div")
         recipeDiv.dataset.id = recipe.id
         recipeDiv.className = "filtered-recipes"
         recipeDiv.innerHTML = 
         `
-        <br>
-        ${recipe.title}
-        <button class="like-btn">Like ❤️</button>
-        <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
-        <div class="recipe-detail"  style="display: none;"> ${recipe.content} </div>
+
+        <div class="recipe-info">
+            <img src="${recipe.image}">
+            <h3>${recipe.title}</h3>
+            <button class="like-btn">Like ❤️</button>
+            <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
+        </div>
+        <div class="recipe-detail" style="display: none;">
+            <span class="ingredient">Ingredients: ${ingredients.join(", ")}</span>
+            <span>${content}</span>
+        </div>
+
         <ul class="comments">
         </ul>
         <form class="comment-form" id=${recipe.id}>
@@ -149,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         </form>
         <br>
         `
+
         container.append(recipeDiv)
         let commentsUl = recipeDiv.querySelector(".comments")
         recipe.comments.forEach(comment => {
@@ -157,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     }
 
+    // Rerender recipe when filter buttons are clicked
     const fetchRecipes = container => {
         const filterKeyword = filterKeywords.join('')
         if (ingredient === "") {
