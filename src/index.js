@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 })
 
 
-                //********
+    //add comments to database 
                 const recipesContainer = cuisineContainer.children[0].children[1]
                 
                 recipesContainer.addEventListener("submit", function(e){
@@ -86,13 +86,24 @@ document.addEventListener("DOMContentLoaded", function(e){
                     let recipeId = e.target.id
 
                     let comments = e.target.previousElementSibling
-                    console.log(comments)
                     comments.append(newCommentLi)
-                })
-                //
-                
+                    e.target.reset()
 
-               
+
+                    fetch(commentsUrl, {
+                        method: "POST",
+                        headers:{
+                            "Content-Type": "application/json",
+                            "Accepts": "application/json"
+                        },
+                        body: JSON.stringify({
+                            comments: newComment
+                        })
+                    })
+                    // .then(resp => resp.json())
+                    // .then(data => renderRecipes(recipeContainer, data))  
+                })
+                
               
             })
         } else if (e.target.className === "filter-btn") {
@@ -155,27 +166,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 })
 
 
-//add comments to database 
 
-                // commentForm.addEventListener("submit", function(e){
-                //     e.preventDefault()
-                //     let newComment = document.querySelector(".comment-input").value
 
-                //     // fetch(commentsUrl, {
-                //     //     method: "POST",
-                //     //     headers:{
-                //     //         "Content-Type": "application.json",
-                //     //         "Accepts": "application/json"
-                //     //     },
-                //     //     body: JSON.stringify({
-                //     //         comments: newComment
-                //     //     })
-                //     // })
-                //     // .then(resp => resp.json())
-                //     // .then(recipe => renderRecipe(recipe))
-                      
-                // })
-
+              
 
 
                    
