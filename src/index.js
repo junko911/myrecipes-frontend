@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     fetchApiData()
 
+    let addCommentToList = (ul, comment) => {
+        let newCommentLi = document.createElement("li")
+        newCommentLi.textContent = comment
+        ul.append(newCommentLi)
+    }
+
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
             cuisineType = e.target.id
@@ -78,13 +84,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                 recipesContainer.addEventListener("submit", function(e){
                     e.preventDefault()
                     console.log(e.target.id)
-                    let newComment = e.target.children[0].value
-                    let newCommentLi = document.createElement("li")
-                    newCommentLi.textContent = newComment
                     let recipeId = e.target.id
-
+                    let newComment = e.target.children[0].value
                     let comments = e.target.previousElementSibling
-                    comments.append(newCommentLi)
+                    addCommentToList(comments, newComment)
                     e.target.reset()
 
 
@@ -99,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                             "recipe_id": recipeId
                         })
                     })
+                     
                 })
                 
               
@@ -119,13 +123,13 @@ document.addEventListener("DOMContentLoaded", function(e){
               //render all recipes
     const renderRecipes = (container, recipesArray) => {
         document.querySelector('.recipe-container').innerHTML = ""
-
         recipesArray.forEach(recipe => {
             renderRecipe(container, recipe)
         })
     }
                 //render single recipe
     const renderRecipe = (container, recipe) => {
+        console.log(recipe)
         let recipeId = recipe.id
         let recipeDiv = document.createElement("div")
         recipeDiv.dataset.id = recipe.id
@@ -137,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         <button class="like-btn">Like ❤️</button>
         <button class="recipe-detail-btn" data-id=${recipeId}>See Detail</button> 
         <div class="recipe-detail"  style="display: none;"> ${recipe.content} </div>
-        <ul class="comments" >
+        <ul class="comments">
         </ul>
         <form class="comment-form" id=${recipe.id}>
             <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
@@ -146,6 +150,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         <br>
         `
         container.append(recipeDiv)
+        let commentsUl = recipeDiv.querySelector(".comments")
+        recipe.comments.forEach(comment => {
+            addCommentToList(commentsUl, comment.content)
+        })
+
     }
 
     const fetchRecipes = container => {
