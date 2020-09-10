@@ -151,7 +151,7 @@ div.cuisine-nav {
 }
 
 div.cuisine-nav button {
-  background-color: #FFCDB2;
+  background-color:rgba(255, 205, 178, 0.5);
   border-color: #FFB4A2;
   text-align: center;
   font-size: 18px;
@@ -165,7 +165,7 @@ div.cuisine-nav button:focus {
 div.cuisine-bar {
   color: ivory;
   padding-left: 4rem;
-  padding-top: 1rem;
+  padding-top: 0.8rem;
   width: 100%;
   height: 4rem;
   text-shadow: 2px 2px 2px #6D6875;
@@ -184,15 +184,22 @@ div.filtered-recipes img {
   margin: 0 0 1rem 1rem;
 }
 
+button.like-btn {
+  outline: none;
+  background-color: deeppink;
+  border: none;
+  border-radius: 50%;
+  color: ivory;
+  box-shadow: 1px 1px 1px #6D6875;
+  margin-right: 10px
+}
+
+i.fas {
+  font-size: 15px;
+}
+
 div.recipe-detail {
-  /* text-align: left; */
-  /* border: grey solid 1px; */
   padding: 1rem 0;
-  /* width: 75rem; */
-  /* height: 5.45rem; */
-  /* display: inline-grid; */
-  /* margin: 1rem 2rem; */
-  /* box-shadow: 3px 4px #CD5C5C */
 }
 
 span.ingredient {
