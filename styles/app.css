@@ -30,6 +30,10 @@ div.container {
   width: 1200px;
 }
 
+div.col {
+  padding: 0;
+}
+
 div.cuisine {
   text-align: center;
   padding: 1rem;
