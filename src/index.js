@@ -73,9 +73,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                             console.log("button click working")
                         if(recipeDetails.style.display === "none"){
                             recipeDetails.style.display = "block"
+                            e.target.parentElement.children[1].style.paddingTop = "0"
                             e.target.textContent = "See Less"
                         } else if(recipeDetails.style.display === "block"){
                             recipeDetails.style.display = "none"
+                            e.target.parentElement.children[1].style.paddingTop = "40px"
                             e.target.textContent = "See Detail"
                         }
                 
@@ -160,15 +162,14 @@ document.addEventListener("DOMContentLoaded", function(e){
                 </ul>
             </div>
             <span>${content}</span>
+            <ul class="comments">
+            </ul>
+            <form class="comment-form" id=${recipe.id}>
+                <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
+                <button class="comment-button" type="submit">Add Comment</button>
+            </form>
+            <br>
         </div>
-
-        <ul class="comments">
-        </ul>
-        <form class="comment-form" id=${recipe.id}>
-            <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
-            <button class="comment-button" type="submit">Add Comment</button>
-        </form>
-        <br>
         `
 
         container.append(recipeDiv)
