@@ -142,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         let recipeId = recipe.id
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         const commentCount = recipe.comments.length
-        debugger
         
         let recipeDiv = document.createElement("div")
         recipeDiv.dataset.id = recipe.id
@@ -159,11 +158,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         </div>
         <div class="recipe-detail" style="display: none;">
             <div class="ingredient">
-                <h5>Ingredients:</h5>
+                <h5>📝 Ingredients</h5>
                 <ul>
                 </ul>
             </div>
+            <h5>📋 Instruction</h5>
             <span>${content}</span>
+            <h5>💬 Comments</h5>
             <ul class="comments">
             </ul>
             <form class="comment-form" id=${recipe.id}>
