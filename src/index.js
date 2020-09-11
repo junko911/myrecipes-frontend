@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     const addCommentCount = target => {
         const span = target.parentElement.parentElement.firstElementChild.children[3]
         const currentText = span.textContent
-        const newText = currentText.split(" ")
+        const array = currentText.split(" ")
+        const currentNum = parseInt(array[3])
+        const newNum = currentNum + 1
+        array[3] = newNum
+        span.textContent = array.join(" ")
     }
 
     const addLikeCount = (num, id) => {
