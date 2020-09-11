@@ -14,6 +14,33 @@ document.addEventListener("DOMContentLoaded", function(e){
         newCommentLi.textContent = comment
         ul.append(newCommentLi)
     }
+    
+    const addCommentCount = target => {
+        const span = target.parentElement.parentElement.firstElementChild.children[3]
+        const currentText = span.textContent
+        const newText = currentText.split(" ")
+    }
+
+    const updateLikes = target => {
+        const recipeId = target.closest(".filtered-recipes").dataset.id
+        fetch(`http://localhost:3000/api/v1/recipes/${recipeId}`)
+        .then(res => res.json())
+        .then(recipe => addLike(recipe.likes, recipeId))
+    }
+
+    const addLike = (currentLike, id) => {
+        options = {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              likes: currentLike + 1
+            })
+        }
+        fetch(`http://localhost:3000/api/v1/recipes/${id}`, options)
+    }
 
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
@@ -87,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                 
                     } else if (e.target.classList.contains("home-btn")) {
                         location.reload()
+                    } else if (e.target.className === "like-btn" || e.target.className === "fas") {
+                        updateLikes(e.target)
                     }
                 })
 
@@ -101,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     let newComment = e.target.children[0].value
                     let comments = e.target.previousElementSibling
                     addCommentToList(comments, newComment)
+                    addCommentCount(e.target)
                     e.target.reset()
 
 
@@ -115,10 +145,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                             "recipe_id": recipeId
                         })
                     })
-                     
                 })
-                
-              
             })
         } else if (e.target.className === "filter-btn") {
             if (e.target.dataset.status === "off") {
@@ -211,14 +238,3 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     }
 })
-
-
-
-
-              
-
-
-                   
-                    
-                        
-              
