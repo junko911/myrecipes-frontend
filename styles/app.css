@@ -193,10 +193,10 @@ div.cuisine-bar {
 }
 
 div.filtered-recipes {
-  background:rgba(255, 255, 240, 0.75);
+  background: rgba(255, 255, 240, 0.75);
   margin-bottom: 15px;
   padding: 1rem;
-  min-height: 200px;
+  overflow: hidden;
 }
 
 div.recipe-info h3 {
@@ -206,7 +206,7 @@ div.recipe-info h3 {
 div.filtered-recipes img {
   float: right;
   width: 200px;
-  margin: 0 0 1rem 1rem;
+  margin: 0 0 0 1rem;
 }
 
 button.like-btn {
