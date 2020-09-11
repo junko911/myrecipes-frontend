@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", function(e){
                 document.querySelector(".cuisine-bar").style.background = `url(./images/${cuisineType}.jpg) center center no-repeat`
                 document.querySelector(".cuisine-bar").style.backgroundSize = "cover"
 
+                // Home button
+                const homeBtn = document.createElement("button")
+                document.querySelector(".container").append(homeBtn)
+                homeBtn.textContent = "Back"
+                homeBtn.classList.add("home-btn", "btn", "btn-info")
+
                 const recipeContainer = document.querySelector(".recipe-container")
                 
                 let fetchFilteredRecipes = () => {
@@ -66,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }
                 fetchFilteredRecipes()
 
-                const secondPageContainer = document.querySelector("#second-page")                
-                secondPageContainer.addEventListener("click", function(e){
+                // const secondPageContainer = document.querySelector("#second-page")                
+                document.addEventListener("click", function(e){
                     if(e.target.classList.contains("recipe-detail-btn")){
                         const recipeDetails = e.target.parentElement.nextElementSibling
                             console.log("button click working")
@@ -81,6 +87,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                             e.target.textContent = "See Detail"
                         }
                 
+                    } else if (e.target.classList.contains("home-btn")) {
+                        location.reload()
                     }
                 })
 
@@ -153,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             <img src="${recipe.image}">
             <h3>${recipe.title}</h3>
             <button class="like-btn"><i class='fas'>&#xf004;</i></button>
-            <span>${recipe.likes} Likes | ${commentCount} comments</span>
+            <span>${recipe.likes} Likes | ${commentCount} comments | </span>
             <button class="recipe-detail-btn btn btn-info btn-sm" data-id=${recipeId}>See Detail</button> 
         </div>
         <div class="recipe-detail" style="display: none;">
