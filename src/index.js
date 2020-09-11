@@ -141,6 +141,8 @@ document.addEventListener("DOMContentLoaded", function(e){
        
         let recipeId = recipe.id
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
+        const commentCount = recipe.comments.length
+        debugger
         
         let recipeDiv = document.createElement("div")
         recipeDiv.dataset.id = recipe.id
@@ -152,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             <img src="${recipe.image}">
             <h3>${recipe.title}</h3>
             <button class="like-btn"><i class='fas'>&#xf004;</i></button>
-            <span>${recipe.likes} Likes</span>
+            <span>${recipe.likes} Likes | ${commentCount} comments</span>
             <button class="recipe-detail-btn btn btn-info btn-sm" data-id=${recipeId}>See Detail</button> 
         </div>
         <div class="recipe-detail" style="display: none;">
