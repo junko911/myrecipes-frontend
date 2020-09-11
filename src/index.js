@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             </ul>
             <form class="comment-form" id=${recipe.id}>
                 <input class="comment-input" type="text" name="comment" placeholder="Add a comment..."/>
-                <button class="comment-button" type="submit">Add Comment</button>
+                <button class="comment-button btn btn-secondary btn-sm" type="submit">Add Comment</button>
             </form>
             <br>
         </div>
