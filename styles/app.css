@@ -192,11 +192,16 @@ div.filtered-recipes img {
 
 button.like-btn {
   outline: none;
-  background-color: deeppink;
+  background-color: #d44b6b;
   border: none;
   border-radius: 50%;
   color: ivory;
   box-shadow: 1px 1px 1px #6D6875;
+}
+
+button.like-btn:hover {
+  cursor: pointer;
+  background-color: #e58fa3;
 }
 
 .ingredient h5 {
