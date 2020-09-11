@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", function(e){
         const newText = currentText.split(" ")
     }
 
+    const addLikeCount = (num, id) => {
+        const span = document.querySelector(`[data-id="${id}"]`).firstElementChild.children[3]
+        const currentText = span.textContent
+        const array = currentText.split(" ")
+        array[0] = num
+        span.textContent = array.join(" ")
+    }
+
     const updateLikes = target => {
         const recipeId = target.closest(".filtered-recipes").dataset.id
         fetch(`http://localhost:3000/api/v1/recipes/${recipeId}`)
@@ -40,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             })
         }
         fetch(`http://localhost:3000/api/v1/recipes/${id}`, options)
+        .then(res => res.json())
+        .then(recipe => {
+            addLikeCount(recipe.likes, id)
+        })
     }
 
     cuisineContainer.addEventListener("click", function(e){
