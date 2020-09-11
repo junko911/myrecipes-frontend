@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         newCommentLi.textContent = comment
         ul.append(newCommentLi)
     }
+    
+    const addCommentCount = (target) => {
+        const span = target.parentElement.parentElement.firstElementChild.children[3]
+        const currentText = span.textContent
+        const newText = currentText.split(" ")
+
+    }
 
     cuisineContainer.addEventListener("click", function(e){
         if(e.target.className === "cuisine"){
@@ -101,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     let newComment = e.target.children[0].value
                     let comments = e.target.previousElementSibling
                     addCommentToList(comments, newComment)
+                    addCommentCount(e.target)
                     e.target.reset()
 
 
@@ -115,10 +123,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                             "recipe_id": recipeId
                         })
                     })
-                     
                 })
-                
-              
             })
         } else if (e.target.className === "filter-btn") {
             if (e.target.dataset.status === "off") {
@@ -211,14 +216,3 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     }
 })
-
-
-
-
-              
-
-
-                   
-                    
-                        
-              
