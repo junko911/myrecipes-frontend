@@ -9,6 +9,8 @@ Key features:
 Users can...
 * search recipes by cuisines, and ingredients from 500+ recipes of 16 cuisines
 * filter out recipes that contain allergic ingredients from the result
+* like recipes
+* leave comments
 
 ## Demo
 
