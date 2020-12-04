@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         options = {
             method: 'PATCH',
             headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
-              likes: currentLike + 1
+                likes: currentLike + 1
             })
         }
         fetch(`http://localhost:3000/api/v1/recipes/${id}`, options)
@@ -122,10 +122,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                             console.log("button click working")
                         if(recipeDetails.style.display === "none"){
                             recipeDetails.style.display = "block"
-                            e.target.textContent = "See Less"
+                            e.target.textContent = "Show Less"
                         } else if(recipeDetails.style.display === "block"){
                             recipeDetails.style.display = "none"
-                            e.target.textContent = "See Detail"
+                            e.target.textContent = "Details"
                         }
                 
                     } else if (e.target.classList.contains("home-btn")) {
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
                 //render single recipe
     const renderRecipe = (container, recipe) => {
-       
+
         let recipeId = recipe.id
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         const commentCount = recipe.comments.length
