@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function (e) {
 
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     let cuisineType = ""
     let ingredient = ""
 
-    let addCommentToList = (ul, comment) => {
+    const addCommentToList = (ul, comment) => {
         let newCommentLi = document.createElement("li")
         newCommentLi.textContent = comment
         ul.append(newCommentLi)
     }
-    
+
     const addCommentCount = target => {
         const span = target.parentElement.parentElement.firstElementChild.children[3]
         const currentText = span.textContent
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     const updateLikes = target => {
         const recipeId = target.closest(".filtered-recipes").dataset.id
         fetch(`http://localhost:3000/api/v1/recipes/${recipeId}`)
-        .then(res => res.json())
-        .then(recipe => addLike(recipe.likes, recipeId))
+            .then(res => res.json())
+            .then(recipe => addLike(recipe.likes, recipeId))
     }
 
     const addLike = (currentLike, id) => {
@@ -52,14 +52,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             })
         }
         fetch(`http://localhost:3000/api/v1/recipes/${id}`, options)
-        .then(res => res.json())
-        .then(recipe => {
-            addLikeCount(recipe.likes, id)
-        })
+            .then(res => res.json())
+            .then(recipe => {
+                addLikeCount(recipe.likes, id)
+            })
     }
 
-    cuisineContainer.addEventListener("click", function(e){
-        if(e.target.className === "cuisine"){
+    cuisineContainer.addEventListener("click", function (e) {
+        if (e.target.className === "cuisine") {
             cuisineType = e.target.id
             let cuisineCapitalized = e.target.textContent
 
@@ -74,13 +74,13 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }
             })
 
-            ingredientsForm.addEventListener("submit", function(e){
+            ingredientsForm.addEventListener("submit", function (e) {
                 e.preventDefault()
 
                 ingredient = ingredientsFormInput.value.toLowerCase()
-                
-                cuisineContainer.innerHTML = 
-                `
+
+                cuisineContainer.innerHTML =
+                    `
                 <div id="second-page">
                     <div class="cuisine-nav">
                         <div class="cuisine-bar"><h2>${cuisineCapitalized}</h2></div>
@@ -105,29 +105,28 @@ document.addEventListener("DOMContentLoaded", function(e){
                 homeBtn.classList.add("home-btn", "btn", "btn-info")
 
                 const recipeContainer = document.querySelector(".recipe-container")
-                
+
                 let fetchFilteredRecipes = () => {
                     fetch(`${apiUrl}/${cuisineType}/?ingredient=${ingredient}`)
-                    .then(resp => resp.json())
-                    .then(data => {
-                        allRecipesArray = data 
-                        renderRecipes(recipeContainer, data)})  
+                        .then(resp => resp.json())
+                        .then(data => {
+                            allRecipesArray = data
+                            renderRecipes(recipeContainer, data)
+                        })
                 }
                 fetchFilteredRecipes()
 
-                // const secondPageContainer = document.querySelector("#second-page")                
-                document.addEventListener("click", function(e){
-                    if(e.target.classList.contains("recipe-detail-btn")){
+                document.addEventListener("click", function (e) {
+                    if (e.target.classList.contains("recipe-detail-btn")) {
                         const recipeDetails = e.target.parentElement.nextElementSibling
-                            console.log("button click working")
-                        if(recipeDetails.style.display === "none"){
+                        if (recipeDetails.style.display === "none") {
                             recipeDetails.style.display = "block"
                             e.target.textContent = "Show Less"
-                        } else if(recipeDetails.style.display === "block"){
+                        } else if (recipeDetails.style.display === "block") {
                             recipeDetails.style.display = "none"
                             e.target.textContent = "Details"
                         }
-                
+
                     } else if (e.target.classList.contains("home-btn")) {
                         location.reload()
                     } else if (e.target.className === "like-btn" || e.target.className === "fas") {
@@ -136,12 +135,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                 })
 
 
-    //add comments to database 
+                //add comments to database 
                 const recipesContainer = cuisineContainer.children[0].children[1]
-                
-                recipesContainer.addEventListener("submit", function(e){
+
+                recipesContainer.addEventListener("submit", function (e) {
                     e.preventDefault()
-                    console.log(e.target.id)
                     let recipeId = e.target.id
                     let newComment = e.target.children[0].value
                     let comments = e.target.previousElementSibling
@@ -152,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
                     fetch(commentsUrl, {
                         method: "POST",
-                        headers:{
+                        headers: {
                             "Content-Type": "application/json",
                             "Accepts": "application/json"
                         },
@@ -172,31 +170,31 @@ document.addEventListener("DOMContentLoaded", function(e){
             } else {
                 e.target.dataset.status = "off"
                 e.target.style.opacity = ""
-                filterKeywords = filterKeywords.filter( word => word !== `&${e.target.id}_free=1`)
+                filterKeywords = filterKeywords.filter(word => word !== `&${e.target.id}_free=1`)
                 fetchRecipes(e.target.parentElement.nextElementSibling)
             }
-        }        
+        }
     })
-    
-              //render all recipes
+
+    //render all recipes
     const renderRecipes = (container, recipesArray) => {
         document.querySelector('.recipe-container').innerHTML = ""
         recipesArray.forEach(recipe => {
             renderRecipe(container, recipe)
         })
     }
-                //render single recipe
+    //render single recipe
     const renderRecipe = (container, recipe) => {
 
         let recipeId = recipe.id
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         const commentCount = recipe.comments.length
-        
+
         let recipeDiv = document.createElement("div")
         recipeDiv.dataset.id = recipe.id
         recipeDiv.className = "filtered-recipes"
-        recipeDiv.innerHTML = 
-        `
+        recipeDiv.innerHTML =
+            `
 
         <div class="recipe-info">
             <img src="${recipe.image}">
@@ -245,12 +243,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         const filterKeyword = filterKeywords.join('')
         if (ingredient === "") {
             fetch(`${apiUrl}/${cuisineType}?${filterKeyword}`)
-            .then(resp => resp.json())
-            .then(data => renderRecipes(container, data))   
+                .then(resp => resp.json())
+                .then(data => renderRecipes(container, data))
         } else {
             fetch(`${apiUrl}/${cuisineType}?ingredient=${ingredient}&${filterKeyword}`)
-            .then(resp => resp.json())
-            .then(data => renderRecipes(container, data))  
+                .then(resp => resp.json())
+                .then(data => renderRecipes(container, data))
         }
     }
 })
