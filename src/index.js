@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function (e) {
-
     const cuisineContainer = document.querySelector(".container")
     const ingredientsForm = document.querySelector(".form-inline")
     const ingredientsFormInput = document.querySelector(".form-control")
@@ -183,9 +182,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             renderRecipe(container, recipe)
         })
     }
+
     //render single recipe
     const renderRecipe = (container, recipe) => {
-
         let recipeId = recipe.id
         const content = recipe.content === null ? "Sorry, this content is not available..." : recipe.content
         const commentCount = recipe.comments.length
@@ -194,8 +193,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         recipeDiv.dataset.id = recipe.id
         recipeDiv.className = "filtered-recipes"
         recipeDiv.innerHTML =
-            `
-
+        `
         <div class="recipe-info">
             <img src="${recipe.image}">
             <h3>${recipe.title}</h3>
