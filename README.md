@@ -4,6 +4,8 @@
 ## About
 A single page website built with Javascript and Ruby on Rails.
 
+[Link](https://mod3-myrecipes.herokuapp.com/)
+
 Key features:
 
 Users can...
@@ -11,10 +13,6 @@ Users can...
 * filter out recipes that contain allergic ingredients from the result
 * like recipes
 * leave comments
-
-## Demo
-
-[Link](https://mod3-myrecipes.herokuapp.com/)
 
 ## Technologies and stack
 
